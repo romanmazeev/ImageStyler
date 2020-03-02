@@ -1,5 +1,8 @@
 import turicreate as tc
 
+# Use CPU
+turicreate.config.set_num_gpus(0)
+
 # Load the style and content images
 styles = tc.load_images('Dataset/style/')
 content = tc.load_images('Dataset/content/')
