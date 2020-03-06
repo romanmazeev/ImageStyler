@@ -1,7 +1,8 @@
+# Import turicreate
 import turicreate as tc
 
-# Use CPU
-turicreate.config.set_num_gpus(0)
+# Use GPU
+tc.config.set_num_gpus(-1)
 
 # Load the style and content images
 styles = tc.load_images('Dataset/style/')
@@ -11,7 +12,7 @@ content = tc.load_images('Dataset/content/')
 model = tc.style_transfer.create(styles, content)
 
 # Load some test images
-test_images = tc.load_images('test/')
+test_images = tc.load_images('Dataset/test/')
 
 # Stylize the test images
 stylized_images = model.stylize(test_images)
