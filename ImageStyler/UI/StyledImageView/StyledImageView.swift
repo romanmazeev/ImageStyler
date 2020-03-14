@@ -14,13 +14,6 @@ struct StyledImageView: View {
 
     @State var selectedImage: UIImage?
     @State private var isShareSheetPresented = false
-
-    struct Filter {
-        let image: UIImage
-        let name: String
-    }
-
-    @State private var filters: [Filter] = [Filter(image: UIImage(named: "artDeco")!, name: "Art deco")]
     
     var body: some View {
         VStack {
