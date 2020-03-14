@@ -9,19 +9,20 @@
 import SwiftUI
 
 struct SelectImageView: View {
+    @EnvironmentObject var viewModel: ViewModel
+
     @State private var isImagePickerShowed = false
-    @State private var isImageSelected: Bool? = false
-    @State private var isImageCaptured: Bool? = false
     @State private var sourceType: UIImagePickerController.SourceType = .camera
 
-    @ObservedObject private var viewModel = ViewModel()
-    
+    @State private var isImageSelected: Bool? = false
+    @State private var isImageCaptured: Bool? = false
+
     var body: some View {
         NavigationView {
             VStack {
                 Spacer()
 
-                NavigationLink(destination: StyledImageView(viewModel: viewModel), tag: true, selection: $isImageSelected) {
+                NavigationLink(destination: StyledImageView(), tag: true, selection: $isImageSelected) {
                     ImageSourceButton(style: .library) {
                         self.isImagePickerShowed = true
                         self.sourceType = .photoLibrary
@@ -30,7 +31,7 @@ struct SelectImageView: View {
 
                 Spacer()
 
-                NavigationLink(destination: StyledImageView(viewModel: viewModel), tag: true, selection: $isImageCaptured) {
+                NavigationLink(destination: StyledImageView(), tag: true, selection: $isImageCaptured) {
                     ImageSourceButton(style: .camera) {
                         self.isImagePickerShowed = true
                         self.sourceType = .camera
@@ -43,9 +44,9 @@ struct SelectImageView: View {
             .sheet(isPresented: $isImagePickerShowed) {
                 ImagePicker(
                     image: self.$viewModel.selectedImage,
-                    isImageSelected: self.$isImageSelected,
-                    isImageCaptured: self.$isImageCaptured,
-                    sourceType: self.$sourceType
+                    isImageSelected: Binding(self.$isImageSelected)!,
+                    isImageCaptured: Binding(self.$isImageCaptured)!,
+                    sourceType: self.sourceType
                 )
             }
         }

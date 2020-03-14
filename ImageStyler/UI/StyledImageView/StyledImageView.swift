@@ -7,9 +7,12 @@
 //
 
 import SwiftUI
+import Combine
 
 struct StyledImageView: View {
-    @ObservedObject var viewModel: ViewModel
+    @EnvironmentObject var viewModel: ViewModel
+
+    @State var selectedImage: UIImage?
     @State private var isShareSheetPresented = false
     @State private var filters: [Filter] = [Filter(image: UIImage(named: "artDeco")!, name: "Art deco")]
     
@@ -20,7 +23,7 @@ struct StyledImageView: View {
                         .resizable()
                         .scaledToFit()
                         .padding()
-                    ActivityIndicator(isAnimating: $viewModel.isLoading, style: .medium)
+                    ActivityIndicator(isAnimating: viewModel.isLoading, style: .medium)
                 }
 
                 Spacer()
@@ -54,6 +57,6 @@ struct StyledImageView: View {
 
 struct StyledImageView_Previews: PreviewProvider {
     static var previews: some View {
-        StyledImageView(viewModel: ViewModel())
+        StyledImageView()
     }
 }

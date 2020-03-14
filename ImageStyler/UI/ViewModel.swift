@@ -14,8 +14,8 @@ class ViewModel: ObservableObject {
     @Published var selectedImage: UIImage?
 
     // Output
-    @Published var stylizedImage: UIImage?
-    @Published var isLoading = false
+    @Published private(set) var stylizedImage: UIImage?
+    @Published private(set) var isLoading = false
 
     private let mlService = MLService()
     private let imageProcessingService = ImageProcessingService()
@@ -45,7 +45,7 @@ class ViewModel: ObservableObject {
             .map { Optional($0) }
             .assertNoFailure()
             .handleEvents(receiveOutput: { _ in
-                self.isLoading = true
+                self.isLoading = false
             })
             .assign(to: \.stylizedImage, on: self)
             .store(in: &cancellables)
