@@ -11,14 +11,28 @@ import SwiftUI
 struct StyledImageView: View {
     @ObservedObject var viewModel: ViewModel
     @State private var isShareSheetPresented = false
+    @State private var filters: [Filter] = [Filter(image: UIImage(named: "artDeco")!, name: "Art deco")]
     
     var body: some View {
         NavigationView {
-            ZStack {
-                Image(uiImage: viewModel.stylizedImage ?? UIImage())
-                .padding()
-                .scaledToFit()
-                ActivityIndicator(isAnimating: $viewModel.isLoading, style: .medium)
+            VStack {
+                ZStack {
+                    Image(uiImage: viewModel.stylizedImage ?? UIImage())
+                        .resizable()
+                        .scaledToFit()
+                        .padding()
+                    ActivityIndicator(isAnimating: $viewModel.isLoading, style: .medium)
+                }
+
+                Spacer()
+
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        ForEach(0..<filters.count) { filterIndex in
+                            FilterView(filterImage: self.filters[filterIndex].image, filterName: self.filters[filterIndex].name)
+                        }
+                    }
+                }
             }
         }
         .navigationBarTitle("Stylized image")
@@ -32,6 +46,11 @@ struct StyledImageView: View {
         .sheet(isPresented: $isShareSheetPresented) {
             ShareSheet(activityItems: [self.viewModel.$stylizedImage])
         }
+    }
+
+    struct Filter {
+        let image: UIImage
+        let name: String
     }
 }
 

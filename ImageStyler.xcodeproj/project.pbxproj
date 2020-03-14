@@ -22,6 +22,7 @@
 		30DD324A241C769500B8DEB7 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DD3249241C769500B8DEB7 /* ActivityIndicator.swift */; };
 		30DD324D241C79EA00B8DEB7 /* ShareSheetRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DD324C241C79EA00B8DEB7 /* ShareSheetRepresentable.swift */; };
 		30DD324F241C7A0900B8DEB7 /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DD324E241C7A0900B8DEB7 /* ShareSheet.swift */; };
+		30DD3252241C8CC700B8DEB7 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DD3251241C8CC700B8DEB7 /* FilterView.swift */; };
 		30E8E77124163CB4007652E9 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E8E77024163CB4007652E9 /* ViewModel.swift */; };
 		30E8E77E24164290007652E9 /* MLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E8E77D24164290007652E9 /* MLService.swift */; };
 		30E8E78524164323007652E9 /* ImageStyler.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 30E8E78424164323007652E9 /* ImageStyler.mlmodel */; };
@@ -45,6 +46,7 @@
 		30DD3249241C769500B8DEB7 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		30DD324C241C79EA00B8DEB7 /* ShareSheetRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheetRepresentable.swift; sourceTree = "<group>"; };
 		30DD324E241C7A0900B8DEB7 /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
+		30DD3251241C8CC700B8DEB7 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		30E8E77024163CB4007652E9 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		30E8E77C241641EE007652E9 /* ImageStyler.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImageStyler.entitlements; sourceTree = "<group>"; };
 		30E8E77D24164290007652E9 /* MLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLService.swift; sourceTree = "<group>"; };
@@ -140,12 +142,21 @@
 			path = ShareSheet;
 			sourceTree = "<group>";
 		};
+		30DD3256241C8E8600B8DEB7 /* StyledImageView */ = {
+			isa = PBXGroup;
+			children = (
+				30CEB213241ADC0400FA31BD /* StyledImageView.swift */,
+				30DD3251241C8CC700B8DEB7 /* FilterView.swift */,
+			);
+			path = StyledImageView;
+			sourceTree = "<group>";
+		};
 		30E8E77B241641BF007652E9 /* UI */ = {
 			isa = PBXGroup;
 			children = (
 				30E8E77024163CB4007652E9 /* ViewModel.swift */,
 				30DD324B241C79A500B8DEB7 /* SelectImage */,
-				30CEB213241ADC0400FA31BD /* StyledImageView.swift */,
+				30DD3256241C8E8600B8DEB7 /* StyledImageView */,
 				30CEB216241ADC4B00FA31BD /* SwiftUIWrappers */,
 			);
 			path = UI;
@@ -264,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30DD3248241C722900B8DEB7 /* ImageSourceButton.swift in Sources */,
+				30DD3252241C8CC700B8DEB7 /* FilterView.swift in Sources */,
 				30CEB200241ADB9400FA31BD /* ImageProcessingService.swift in Sources */,
 				30CEB214241ADC0400FA31BD /* SelectImageView.swift in Sources */,
 				30CEB223241ADC4B00FA31BD /* ImagePickerRepresentable.swift in Sources */,
@@ -418,7 +430,7 @@
 				DEVELOPMENT_TEAM = 2AB5X5S74A;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "ImageStyler/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -441,7 +453,7 @@
 				DEVELOPMENT_TEAM = 2AB5X5S74A;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "ImageStyler/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
