@@ -14,7 +14,6 @@ struct StyledImageView: View {
     @State private var filters: [Filter] = [Filter(image: UIImage(named: "artDeco")!, name: "Art deco")]
     
     var body: some View {
-        NavigationView {
             VStack {
                 ZStack {
                     Image(uiImage: viewModel.stylizedImage ?? UIImage())
@@ -32,7 +31,6 @@ struct StyledImageView: View {
                             FilterView(filterImage: self.filters[filterIndex].image, filterName: self.filters[filterIndex].name)
                         }
                     }
-                }
             }
         }
         .navigationBarTitle("Stylized image")
