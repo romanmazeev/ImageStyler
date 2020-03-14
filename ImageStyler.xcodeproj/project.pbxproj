@@ -108,14 +108,16 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		30CEB216241ADC4B00FA31BD /* SwiftUIWrappers */ = {
+		30CEB216241ADC4B00FA31BD /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				30DD3247241C722900B8DEB7 /* ImageSourceButton.swift */,
+				30DD3251241C8CC700B8DEB7 /* FilterView.swift */,
 				30DD3249241C769500B8DEB7 /* ActivityIndicator.swift */,
 				30CEB21C241ADC4B00FA31BD /* ImagePicker */,
 				30DD3250241C7A3E00B8DEB7 /* ShareSheet */,
 			);
-			path = SwiftUIWrappers;
+			path = Components;
 			sourceTree = "<group>";
 		};
 		30CEB21C241ADC4B00FA31BD /* ImagePicker */ = {
@@ -127,15 +129,6 @@
 			path = ImagePicker;
 			sourceTree = "<group>";
 		};
-		30DD324B241C79A500B8DEB7 /* SelectImage */ = {
-			isa = PBXGroup;
-			children = (
-				30CEB212241ADC0400FA31BD /* SelectImageView.swift */,
-				30DD3247241C722900B8DEB7 /* ImageSourceButton.swift */,
-			);
-			path = SelectImage;
-			sourceTree = "<group>";
-		};
 		30DD3250241C7A3E00B8DEB7 /* ShareSheet */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,15 +136,6 @@
 				30DD324E241C7A0900B8DEB7 /* ShareSheet.swift */,
 			);
 			path = ShareSheet;
-			sourceTree = "<group>";
-		};
-		30DD3256241C8E8600B8DEB7 /* StyledImageView */ = {
-			isa = PBXGroup;
-			children = (
-				30CEB213241ADC0400FA31BD /* StyledImageView.swift */,
-				30DD3251241C8CC700B8DEB7 /* FilterView.swift */,
-			);
-			path = StyledImageView;
 			sourceTree = "<group>";
 		};
 		30DD3259241D4D5000B8DEB7 /* Models */ = {
@@ -166,9 +150,9 @@
 			isa = PBXGroup;
 			children = (
 				30E8E77024163CB4007652E9 /* ViewModel.swift */,
-				30DD324B241C79A500B8DEB7 /* SelectImage */,
-				30DD3256241C8E8600B8DEB7 /* StyledImageView */,
-				30CEB216241ADC4B00FA31BD /* SwiftUIWrappers */,
+				30CEB212241ADC0400FA31BD /* SelectImageView.swift */,
+				30CEB213241ADC0400FA31BD /* StyledImageView.swift */,
+				30CEB216241ADC4B00FA31BD /* Components */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -442,7 +426,7 @@
 				DEVELOPMENT_TEAM = 2AB5X5S74A;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "ImageStyler/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -465,7 +449,7 @@
 				DEVELOPMENT_TEAM = 2AB5X5S74A;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "ImageStyler/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

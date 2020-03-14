@@ -34,9 +34,6 @@ class ViewModel: ObservableObject {
     init() {
         $selectedImage
             .compactMap { $0 }
-            .handleEvents(receiveOutput: { _ in
-                self.isLoading = true
-            })
             .setFailureType(to: Error.self)
             .flatMap { [unowned self] in
                 self.imageProcessingService.resizeImage(image: $0, targetSize: CGSize(width: 640, height: 640))
@@ -54,10 +51,15 @@ class ViewModel: ObservableObject {
             }
             .map { Optional($0) }
             .assertNoFailure()
-            .handleEvents(receiveOutput: { _ in
-                self.isLoading = false
-            })
             .assign(to: \.stylizedImage, on: self)
             .store(in: &cancellables)
+
+
+        $selectedFilter
+            .sink { _ in
+                self.selectedImage = self.selectedImage
+        }.store(in: &cancellables)
     }
+
+    
 }
