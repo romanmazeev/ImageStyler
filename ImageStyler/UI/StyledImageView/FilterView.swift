@@ -22,6 +22,12 @@ struct FilterView: View {
                 .font(.footnote)
                 .bold()
         }
+        .onTapGesture {
+            print("123")
+        }
+
+        .padding()
+        .border(Color.blue)
     }
 }
 

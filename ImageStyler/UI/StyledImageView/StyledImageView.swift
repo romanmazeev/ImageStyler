@@ -14,26 +14,33 @@ struct StyledImageView: View {
 
     @State var selectedImage: UIImage?
     @State private var isShareSheetPresented = false
+
+    struct Filter {
+        let image: UIImage
+        let name: String
+    }
+
     @State private var filters: [Filter] = [Filter(image: UIImage(named: "artDeco")!, name: "Art deco")]
     
     var body: some View {
-            VStack {
-                ZStack {
-                    Image(uiImage: viewModel.stylizedImage ?? UIImage())
-                        .resizable()
-                        .scaledToFit()
-                        .padding()
-                    ActivityIndicator(isAnimating: viewModel.isLoading, style: .medium)
-                }
+        VStack {
+            ZStack {
+                Image(uiImage: viewModel.stylizedImage ?? UIImage())
+                    .resizable()
+                    .scaledToFit()
+                    .padding([.horizontal, .top])
+                ActivityIndicator(isAnimating: viewModel.isLoading, style: .medium)
+            }
 
-                Spacer()
+            Spacer()
 
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        ForEach(0..<filters.count) { filterIndex in
-                            FilterView(filterImage: self.filters[filterIndex].image, filterName: self.filters[filterIndex].name)
-                        }
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 10) {
+                    ForEach(0..<filters.count) { filterIndex in
+                        FilterView(filterImage: self.filters[filterIndex].image, filterName: self.filters[filterIndex].name)
                     }
+                }
+                .padding()
             }
         }
         .navigationBarTitle("Stylized image")
@@ -47,11 +54,6 @@ struct StyledImageView: View {
         .sheet(isPresented: $isShareSheetPresented) {
             ShareSheet(activityItems: [self.viewModel.$stylizedImage])
         }
-    }
-
-    struct Filter {
-        let image: UIImage
-        let name: String
     }
 }
 
