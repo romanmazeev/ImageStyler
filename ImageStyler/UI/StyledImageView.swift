@@ -10,17 +10,28 @@ import SwiftUI
 
 struct StyledImageView: View {
     @ObservedObject var viewModel: ViewModel
+    @State private var isShareSheetPresented = false
     
     var body: some View {
         NavigationView {
             ZStack {
                 Image(uiImage: viewModel.stylizedImage ?? UIImage())
-                    .resizable()
-                    .scaledToFit()
+                .padding()
+                .scaledToFit()
                 ActivityIndicator(isAnimating: $viewModel.isLoading, style: .medium)
             }
         }
         .navigationBarTitle("Stylized image")
+        .navigationBarItems(trailing: Button(action: {
+            if self.viewModel.stylizedImage != nil {
+                self.isShareSheetPresented = true
+            }
+        }, label: {
+            Image(systemName: "square.and.arrow.up")
+        }))
+        .sheet(isPresented: $isShareSheetPresented) {
+            ShareSheet(activityItems: [self.viewModel.$stylizedImage])
+        }
     }
 }
 

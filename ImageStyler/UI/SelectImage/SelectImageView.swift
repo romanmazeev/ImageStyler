@@ -12,7 +12,6 @@ struct SelectImageView: View {
     @State private var isImagePickerShowed = false
     @State private var isImageSelected: Bool? = false
     @State private var isImageCaptured: Bool? = false
-
     @State private var sourceType: UIImagePickerController.SourceType = .camera
 
     @ObservedObject private var viewModel = ViewModel()
@@ -42,11 +41,11 @@ struct SelectImageView: View {
             }
             .navigationBarTitle("Select image")
             .sheet(isPresented: $isImagePickerShowed) {
-                ImagePickerView(
+                ImagePicker(
                     image: self.$viewModel.selectedImage,
                     isImageSelected: self.$isImageSelected,
                     isImageCaptured: self.$isImageCaptured,
-                    sourceType: self.sourceType
+                    sourceType: self.$sourceType
                 )
             }
         }

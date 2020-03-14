@@ -26,10 +26,10 @@ struct ImageSourceButton: View {
                 Text(verbatim: style == .library ? "Import from library" : "Take a photo")
             }
         }
-    .padding()
-    .foregroundColor(.white)
-    .background(Color.blue)
-    .cornerRadius(12)
+        .padding()
+        .foregroundColor(.white)
+        .background(Color.blue)
+        .cornerRadius(12)
     }
 }
 

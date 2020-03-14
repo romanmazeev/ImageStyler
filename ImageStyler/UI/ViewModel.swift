@@ -27,8 +27,10 @@ class ViewModel: ObservableObject {
             .handleEvents(receiveOutput: { _ in
                 self.isLoading = true
             })
-            .map { self.imageProcessingService.resizeImage(image: $0, targetSize: CGSize(width: 640, height: 640)) }
             .setFailureType(to: Error.self)
+            .flatMap { [unowned self] in
+                self.imageProcessingService.resizeImage(image: $0, targetSize: CGSize(width: 640, height: 640))
+            }
             .flatMap { [unowned self] in
                 self.imageProcessingService.pixelBuffer(from: $0)
             }

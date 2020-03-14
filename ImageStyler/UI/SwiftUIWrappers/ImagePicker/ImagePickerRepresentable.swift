@@ -13,28 +13,25 @@ struct ImagePickerRepresentable : UIViewControllerRepresentable {
     @Binding var image : UIImage?
     @Binding var isImageSelected: Bool?
     @Binding var isImageCaptured: Bool?
-    var sourceType: UIImagePickerController.SourceType
+    @Binding var sourceType: UIImagePickerController.SourceType
 
     func makeCoordinator() -> Coordinator {
         Coordinator(cancelHandler: {
             self.mode.wrappedValue.dismiss()
-            switch self.sourceType  {
-                case .camera: self.isImageCaptured = false
-                case .photoLibrary: self.isImageSelected = false
-                case .savedPhotosAlbum: break
-                @unknown default: break
-            }
-
+            self.setImageSelected(false)
         }) { image in
             self.image = image
-            switch self.sourceType  {
-                case .camera: self.isImageCaptured = true
-                case .photoLibrary: self.isImageSelected = true
-                case .savedPhotosAlbum: break
-                @unknown default: break
-            }
-
+            self.setImageSelected(true)
             self.mode.wrappedValue.dismiss()
+        }
+    }
+
+    private func setImageSelected(_ isImageSelected: Bool) {
+        switch self.sourceType  {
+            case .camera: self.isImageCaptured = isImageSelected
+            case .photoLibrary: self.isImageSelected = isImageSelected
+            case .savedPhotosAlbum: break
+            @unknown default: break
         }
     }
 
@@ -56,8 +53,11 @@ struct ImagePickerRepresentable : UIViewControllerRepresentable {
             self.pickedImageHandler = pickedImageHandler
         }
 
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { fatalError() }
+        func imagePickerController(
+            _ picker: UIImagePickerController,
+            didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]
+        ) {
+            guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
             DispatchQueue.main.async {
                 self.pickedImageHandler?(image)
             }
