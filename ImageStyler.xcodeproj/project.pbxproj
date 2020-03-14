@@ -19,6 +19,7 @@
 		30CEB223241ADC4B00FA31BD /* ImagePickerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CEB21D241ADC4B00FA31BD /* ImagePickerRepresentable.swift */; };
 		30CEB224241ADC4B00FA31BD /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CEB21E241ADC4B00FA31BD /* ImagePickerView.swift */; };
 		30DD3248241C722900B8DEB7 /* ImageSourceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DD3247241C722900B8DEB7 /* ImageSourceButton.swift */; };
+		30DD324A241C769500B8DEB7 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DD3249241C769500B8DEB7 /* ActivityIndicator.swift */; };
 		30E8E77124163CB4007652E9 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E8E77024163CB4007652E9 /* ViewModel.swift */; };
 		30E8E77E24164290007652E9 /* MLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E8E77D24164290007652E9 /* MLService.swift */; };
 		30E8E78524164323007652E9 /* ImageStyler.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 30E8E78424164323007652E9 /* ImageStyler.mlmodel */; };
@@ -39,6 +40,7 @@
 		30CEB21D241ADC4B00FA31BD /* ImagePickerRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerRepresentable.swift; sourceTree = "<group>"; };
 		30CEB21E241ADC4B00FA31BD /* ImagePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		30DD3247241C722900B8DEB7 /* ImageSourceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSourceButton.swift; sourceTree = "<group>"; };
+		30DD3249241C769500B8DEB7 /* ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		30E8E77024163CB4007652E9 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		30E8E77C241641EE007652E9 /* ImageStyler.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImageStyler.entitlements; sourceTree = "<group>"; };
 		30E8E77D24164290007652E9 /* MLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLService.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 		30CEB216241ADC4B00FA31BD /* SwiftUIWrappers */ = {
 			isa = PBXGroup;
 			children = (
+				30DD3249241C769500B8DEB7 /* ActivityIndicator.swift */,
 				30CEB21C241ADC4B00FA31BD /* ImagePicker */,
 			);
 			path = SwiftUIWrappers;
@@ -242,6 +245,7 @@
 				30CEB200241ADB9400FA31BD /* ImageProcessingService.swift in Sources */,
 				30CEB214241ADC0400FA31BD /* SelectImageView.swift in Sources */,
 				30CEB223241ADC4B00FA31BD /* ImagePickerRepresentable.swift in Sources */,
+				30DD324A241C769500B8DEB7 /* ActivityIndicator.swift in Sources */,
 				30CEB224241ADC4B00FA31BD /* ImagePickerView.swift in Sources */,
 				30E8E78524164323007652E9 /* ImageStyler.mlmodel in Sources */,
 				30CEB215241ADC0400FA31BD /* StyledImageView.swift in Sources */,

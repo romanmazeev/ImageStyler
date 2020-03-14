@@ -22,9 +22,11 @@ class ViewModel: ObservableObject {
     private var cancellables: Set<AnyCancellable> = .init()
 
     init() {
-
         $selectedImage
             .compactMap { $0 }
+            .handleEvents(receiveOutput: { _ in
+                self.isLoading = true
+            })
             .map { self.imageProcessingService.resizeImage(image: $0, targetSize: CGSize(width: 640, height: 640)) }
             .setFailureType(to: Error.self)
             .flatMap { [unowned self] in
@@ -40,6 +42,9 @@ class ViewModel: ObservableObject {
             }
             .map { Optional($0) }
             .assertNoFailure()
+            .handleEvents(receiveOutput: { _ in
+                self.isLoading = true
+            })
             .assign(to: \.stylizedImage, on: self)
             .store(in: &cancellables)
     }

@@ -9,15 +9,18 @@
 import SwiftUI
 
 struct StyledImageView: View {
-    
     @ObservedObject var viewModel: ViewModel
     
     var body: some View {
         NavigationView {
-            Image(uiImage: viewModel.stylizedImage ?? UIImage())
-                .resizable()
-                .scaledToFit()
-        }.navigationBarTitle("Stylized image")
+            ZStack {
+                Image(uiImage: viewModel.stylizedImage ?? UIImage())
+                    .resizable()
+                    .scaledToFit()
+                ActivityIndicator(isAnimating: $viewModel.isLoading, style: .medium)
+            }
+        }
+        .navigationBarTitle("Stylized image")
     }
 }
 
