@@ -13,7 +13,7 @@ struct ImagePickerRepresentable : UIViewControllerRepresentable {
     @Binding var image : UIImage?
     @Binding var isImageSelected: Bool?
     @Binding var isImageCaptured: Bool?
-    var sourceType: UIImagePickerController.SourceType
+    let sourceType: UIImagePickerController.SourceType
 
     func makeCoordinator() -> Coordinator {
         Coordinator(cancelHandler: {

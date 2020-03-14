@@ -11,7 +11,7 @@ import Combine
 
 struct StyledImageView: View {
     @EnvironmentObject var viewModel: ViewModel
-
+    
     @State var selectedImage: UIImage?
     @State private var isShareSheetPresented = false
     
@@ -28,14 +28,15 @@ struct StyledImageView: View {
             Spacer()
 
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 10) {
-                    ForEach(0..<filters.count) { filterIndex in
-                        FilterView(filterImage: self.filters[filterIndex].image, filterName: self.filters[filterIndex].name)
+                HStack {
+                    ForEach(viewModel.styles, id: \.id) { filter in
+                        FilterView(filter: filter, selectedFilter: self.$viewModel.selectedFilter)
                     }
                 }
                 .padding()
             }
         }
+
         .navigationBarTitle("Stylized image")
         .navigationBarItems(trailing: Button(action: {
             if self.viewModel.stylizedImage != nil {

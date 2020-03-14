@@ -9,11 +9,21 @@
 import Combine
 import SwiftUI
 
+struct StylesData {
+    static var styles = [
+        Filter(id: 0, image: UIImage(named: "artDeco")!, name: "1"),
+        Filter(id: 1, image: UIImage(named: "artDeco")!, name: "2"),
+        Filter(id: 2, image: UIImage(named: "artDeco")!, name: "3"),
+        Filter(id: 3, image: UIImage(named: "artDeco")!, name: "4")
+    ]
+}
+
 class ViewModel: ObservableObject {
-    // Input
     @Published var selectedImage: UIImage?
 
-    // Output
+    @Published var styles = StylesData.styles
+    @Published var selectedFilter = StylesData.styles.first!
+
     @Published private(set) var stylizedImage: UIImage?
     @Published private(set) var isLoading = false
 
@@ -36,7 +46,7 @@ class ViewModel: ObservableObject {
             }
             .receive(on: DispatchQueue.global())
             .flatMap { [unowned self] in
-                self.mlService.transfer($0, styleNumber: 1)
+                self.mlService.transfer($0, styleIndex: self.selectedFilter.id)
             }
             .receive(on: RunLoop.main)
             .flatMap { [unowned self] in

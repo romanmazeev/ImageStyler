@@ -12,7 +12,7 @@ struct ImagePicker: View {
     @Binding var image: UIImage?
     @Binding var isImageSelected: Bool?
     @Binding var isImageCaptured: Bool?
-    @State var sourceType: UIImagePickerController.SourceType
+    let sourceType: UIImagePickerController.SourceType
 
     var body: some View {
         ImagePickerRepresentable(image: $image, isImageSelected: $isImageSelected, isImageCaptured: $isImageCaptured, sourceType: sourceType)

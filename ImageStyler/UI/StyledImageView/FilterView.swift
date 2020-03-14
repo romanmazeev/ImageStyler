@@ -9,30 +9,32 @@
 import SwiftUI
 
 struct FilterView: View {
-    let filterImage: UIImage
-    let filterName: String
+    @State var filter: Filter
+    @Binding var selectedFilter: Filter
 
     var body: some View {
         VStack {
-            Image(uiImage: filterImage)
+            Image(uiImage: filter.image)
                 .resizable()
                 .cornerRadius(12)
                 .frame(width: 60, height: 60, alignment: .center)
-            Text(verbatim: filterName)
+            Text(verbatim: filter.name)
                 .font(.footnote)
                 .bold()
         }
-        .onTapGesture {
-            print("123")
-        }
-
         .padding()
-        .border(Color.blue)
+        .overlay(
+            RoundedRectangle(cornerRadius: 12).stroke(Color.blue)
+                .opacity(filter.id == selectedFilter.id ? 100 : 0)
+        )
+        .onTapGesture {
+            self.selectedFilter = self.filter
+        }
     }
 }
 
 struct FilterView_Previews: PreviewProvider {
     static var previews: some View {
-        FilterView(filterImage: UIImage(), filterName: "Example filter")
+        FilterView(filter: Filter(id: 0, image: UIImage(), name: "Test"), selectedFilter: .constant(Filter(id: 0, image: UIImage(), name: "Test")))
     }
 }
