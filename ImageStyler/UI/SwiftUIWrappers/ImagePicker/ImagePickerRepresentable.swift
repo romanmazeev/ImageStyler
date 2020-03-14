@@ -11,8 +11,8 @@ import SwiftUI
 struct ImagePickerRepresentable : UIViewControllerRepresentable {
     @Environment(\.presentationMode) var mode
     @Binding var image : UIImage?
-    @Binding var isImageSelected: Bool
-    @Binding var isImageCaptured: Bool
+    @Binding var isImageSelected: Bool?
+    @Binding var isImageCaptured: Bool?
     var sourceType: UIImagePickerController.SourceType
 
     func makeCoordinator() -> Coordinator {

@@ -44,8 +44,8 @@ struct SelectImageView: View {
             .sheet(isPresented: $isImagePickerShowed) {
                 ImagePicker(
                     image: self.$viewModel.selectedImage,
-                    isImageSelected: Binding(self.$isImageSelected)!,
-                    isImageCaptured: Binding(self.$isImageCaptured)!,
+                    isImageSelected: self.$isImageSelected,
+                    isImageCaptured: self.$isImageSelected,
                     sourceType: self.sourceType
                 )
             }

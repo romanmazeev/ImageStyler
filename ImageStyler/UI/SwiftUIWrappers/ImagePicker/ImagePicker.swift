@@ -10,8 +10,8 @@ import SwiftUI
 
 struct ImagePicker: View {
     @Binding var image: UIImage?
-    @Binding var isImageSelected: Bool
-    @Binding var isImageCaptured: Bool
+    @Binding var isImageSelected: Bool?
+    @Binding var isImageCaptured: Bool?
     @State var sourceType: UIImagePickerController.SourceType
 
     var body: some View {
