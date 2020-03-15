@@ -1,5 +1,5 @@
 //
-//  Filter.swift
+//  Style.swift
 //  ImageStyler
 //
 //  Created by Roman Mazeev on 14.03.2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Filter: Equatable {
+struct Style: Equatable {
     let id: Int
     let imageData: Data
     let name: String

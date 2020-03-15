@@ -13,7 +13,7 @@ class ViewModel: ObservableObject {
     @Published var selectedImage: UIImage?
 
     @Published var styles = StylesData.styles
-    @Published var selectedFilter = StylesData.styles.first!
+    @Published var selectedStyle = StylesData.styles.first!
 
     @Published var stylizedImage: UIImage?
     @Published var stylizedImageURL: URL?
@@ -40,7 +40,7 @@ class ViewModel: ObservableObject {
             }
             .receive(on: DispatchQueue.global())
             .flatMap { [unowned self] in
-                self.mlService.transfer($0, styleIndex: self.selectedFilter.id)
+                self.mlService.transfer($0, styleIndex: self.selectedStyle.id)
             }
             .receive(on: RunLoop.main)
             .flatMap { [unowned self] in
@@ -52,7 +52,7 @@ class ViewModel: ObservableObject {
             .store(in: &cancellables)
 
 
-        $selectedFilter
+        $selectedStyle
             .sink { _ in
                 self.selectedImage = self.selectedImage
             }

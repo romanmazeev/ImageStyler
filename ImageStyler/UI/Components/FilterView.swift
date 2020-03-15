@@ -1,5 +1,5 @@
 //
-//  Filter.swift
+//  Style.swift
 //  ImageStyler
 //
 //  Created by Roman Mazeev on 14.03.2020.
@@ -8,35 +8,35 @@
 
 import SwiftUI
 
-struct FilterView: View {
-    @State var filter: Filter
-    @Binding var selectedFilter: Filter
+struct StyleView: View {
+    @State var style: Style
+    @Binding var selectedStyle: Style
 
     var body: some View {
         VStack {
-            Image(uiImage: UIImage(data: filter.imageData)!)
+            Image(uiImage: UIImage(data: style.imageData)!)
                 .resizable()
                 .cornerRadius(12)
                 .frame(width: 60, height: 60, alignment: .center)
-            Text(verbatim: filter.name)
+            Text(verbatim: style.name)
                 .font(.footnote)
                 .bold()
         }
         .padding()
         .overlay(
             RoundedRectangle(cornerRadius: 12).stroke(Color.blue)
-                .opacity(filter.id == selectedFilter.id ? 100 : 0)
+                .opacity(style.id == selectedStyle.id ? 100 : 0)
         )
         .onTapGesture {
-            if self.selectedFilter != self.filter {
-                self.selectedFilter = self.filter
+            if self.selectedStyle != self.style {
+                self.selectedStyle = self.style
             }
         }
     }
 }
 
-struct FilterView_Previews: PreviewProvider {
+struct StyleView_Previews: PreviewProvider {
     static var previews: some View {
-        FilterView(filter: Filter(id: 0, imageData: Data(), name: "Test"), selectedFilter: .constant(Filter(id: 0, imageData: Data(), name: "Test")))
+        StyleView(style: Style(id: 0, imageData: Data(), name: "Test"), selectedStyle: .constant(Style(id: 0, imageData: Data(), name: "Test")))
     }
 }

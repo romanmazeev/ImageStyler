@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct StylesData {
-    static var styles: [Filter] = [
-        Filter(id: 0, imageData: UIImage(named: "artDeco")!.jpegData(compressionQuality: 0)!, name: "Art deco")
+    static var styles: [Style] = [
+        Style(id: 0, imageData: UIImage(named: "artDeco")!.jpegData(compressionQuality: 0)!, name: "Art deco")
     ]
 }

@@ -11,8 +11,6 @@ import Combine
 
 struct StyledImageView: View {
     @EnvironmentObject var viewModel: ViewModel
-    
-    @State var selectedImage: UIImage?
     @State private var isShareSheetPresented = false
     
     var body: some View {
@@ -31,8 +29,8 @@ struct StyledImageView: View {
 
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                    ForEach(viewModel.styles, id: \.id) { filter in
-                        FilterView(filter: filter, selectedFilter: self.$viewModel.selectedFilter)
+                    ForEach(viewModel.styles, id: \.id) { style in
+                        StyleView(style: style, selectedStyle: self.$viewModel.selectedStyle)
                     }
                 }
                 .padding()
