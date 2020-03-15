@@ -27,6 +27,7 @@
 		30E8E77124163CB4007652E9 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E8E77024163CB4007652E9 /* ViewModel.swift */; };
 		30E8E77E24164290007652E9 /* MLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E8E77D24164290007652E9 /* MLService.swift */; };
 		30E8E78524164323007652E9 /* ImageStyler.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 30E8E78424164323007652E9 /* ImageStyler.mlmodel */; };
+		30F1499B241DB75B00399BF6 /* StylesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F1499A241DB75B00399BF6 /* StylesData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		30E8E77C241641EE007652E9 /* ImageStyler.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ImageStyler.entitlements; sourceTree = "<group>"; };
 		30E8E77D24164290007652E9 /* MLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLService.swift; sourceTree = "<group>"; };
 		30E8E78424164323007652E9 /* ImageStyler.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = ImageStyler.mlmodel; path = Model/ImageStyler.mlmodel; sourceTree = SOURCE_ROOT; };
+		30F1499A241DB75B00399BF6 /* StylesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylesData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 		30E8E781241642B6007652E9 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				30F1499A241DB75B00399BF6 /* StylesData.swift */,
 				30CEB1FF241ADB9400FA31BD /* ImageProcessingService.swift */,
 				30E8E783241642EE007652E9 /* ML */,
 			);
@@ -277,6 +280,7 @@
 				30DD324A241C769500B8DEB7 /* ActivityIndicator.swift in Sources */,
 				30CEB224241ADC4B00FA31BD /* ImagePicker.swift in Sources */,
 				30E8E78524164323007652E9 /* ImageStyler.mlmodel in Sources */,
+				30F1499B241DB75B00399BF6 /* StylesData.swift in Sources */,
 				30CEB215241ADC0400FA31BD /* StyledImageView.swift in Sources */,
 				30DD324D241C79EA00B8DEB7 /* ShareSheetRepresentable.swift in Sources */,
 				30E8E77124163CB4007652E9 /* ViewModel.swift in Sources */,
