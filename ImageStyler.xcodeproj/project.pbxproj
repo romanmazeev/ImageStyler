@@ -90,6 +90,7 @@
 			children = (
 				30E8E77C241641EE007652E9 /* ImageStyler.entitlements */,
 				30E8E77B241641BF007652E9 /* UI */,
+				30E8E77024163CB4007652E9 /* ViewModel.swift */,
 				30E8E781241642B6007652E9 /* Service */,
 				30DD3259241D4D5000B8DEB7 /* Models */,
 				301108F524125E1E00A0AB66 /* Supporting Files */,
@@ -151,7 +152,6 @@
 		30E8E77B241641BF007652E9 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				30E8E77024163CB4007652E9 /* ViewModel.swift */,
 				30CEB212241ADC0400FA31BD /* SelectImageView.swift */,
 				30CEB213241ADC0400FA31BD /* StyledImageView.swift */,
 				30CEB216241ADC4B00FA31BD /* Components */,
