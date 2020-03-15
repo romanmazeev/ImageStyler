@@ -7,10 +7,9 @@
 //
 
 import Foundation
-import UIKit
 
 struct Filter: Equatable {
     let id: Int
-    let image: UIImage
+    let imageData: Data
     let name: String
 }

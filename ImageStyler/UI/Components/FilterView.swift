@@ -14,7 +14,7 @@ struct FilterView: View {
 
     var body: some View {
         VStack {
-            Image(uiImage: filter.image)
+            Image(uiImage: UIImage(data: filter.imageData)!)
                 .resizable()
                 .cornerRadius(12)
                 .frame(width: 60, height: 60, alignment: .center)
@@ -37,6 +37,6 @@ struct FilterView: View {
 
 struct FilterView_Previews: PreviewProvider {
     static var previews: some View {
-        FilterView(filter: Filter(id: 0, image: UIImage(), name: "Test"), selectedFilter: .constant(Filter(id: 0, image: UIImage(), name: "Test")))
+        FilterView(filter: Filter(id: 0, imageData: Data(), name: "Test"), selectedFilter: .constant(Filter(id: 0, imageData: Data(), name: "Test")))
     }
 }
