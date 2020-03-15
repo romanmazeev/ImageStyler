@@ -22,7 +22,7 @@ struct StyledImageView: View {
                     .resizable()
                     .scaledToFit()
                     .padding([.horizontal, .top])
-                ActivityIndicator(isAnimating: viewModel.isLoading, style: .medium)
+                ActivityIndicator(isAnimating: $viewModel.isLoading, style: .medium)
             }
 
             Spacer()

@@ -9,23 +9,14 @@
 import Combine
 import SwiftUI
 
-struct StylesData {
-    static var styles = [
-        Filter(id: 0, image: UIImage(named: "artDeco")!, name: "1"),
-        Filter(id: 1, image: UIImage(named: "artDeco")!, name: "2"),
-        Filter(id: 2, image: UIImage(named: "artDeco")!, name: "3"),
-        Filter(id: 3, image: UIImage(named: "artDeco")!, name: "4")
-    ]
-}
-
 class ViewModel: ObservableObject {
     @Published var selectedImage: UIImage?
 
     @Published var styles = StylesData.styles
     @Published var selectedFilter = StylesData.styles.first!
 
-    @Published private(set) var stylizedImage: UIImage?
-    @Published private(set) var isLoading = false
+    @Published var stylizedImage: UIImage?
+    @Published var isLoading = false
 
     private let mlService = MLService()
     private let imageProcessingService = ImageProcessingService()
@@ -33,6 +24,10 @@ class ViewModel: ObservableObject {
 
     init() {
         $selectedImage
+            .handleEvents(receiveOutput: { _ in
+                self.stylizedImage = nil
+                self.isLoading =  true
+            })
             .compactMap { $0 }
             .setFailureType(to: Error.self)
             .flatMap { [unowned self] in
@@ -58,8 +53,14 @@ class ViewModel: ObservableObject {
         $selectedFilter
             .sink { _ in
                 self.selectedImage = self.selectedImage
-        }.store(in: &cancellables)
-    }
+            }
+            .store(in: &cancellables)
 
-    
+        $stylizedImage
+            .compactMap { $0 }
+            .sink { _ in
+                self.isLoading = false
+            }
+            .store(in: &cancellables)
+    }
 }
