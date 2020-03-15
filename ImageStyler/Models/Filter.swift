@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct Filter {
+struct Filter: Equatable {
     let id: Int
     let image: UIImage
     let name: String

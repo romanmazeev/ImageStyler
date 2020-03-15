@@ -28,7 +28,9 @@ struct FilterView: View {
                 .opacity(filter.id == selectedFilter.id ? 100 : 0)
         )
         .onTapGesture {
-            self.selectedFilter = self.filter
+            if self.selectedFilter != self.filter {
+                self.selectedFilter = self.filter
+            }
         }
     }
 }
