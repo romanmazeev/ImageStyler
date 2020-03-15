@@ -51,6 +51,8 @@
 	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>Give access to camera to make a photo</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Give access to photo library so save stylized photo</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

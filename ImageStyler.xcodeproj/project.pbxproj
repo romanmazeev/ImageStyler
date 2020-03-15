@@ -28,6 +28,7 @@
 		30E8E77E24164290007652E9 /* MLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E8E77D24164290007652E9 /* MLService.swift */; };
 		30E8E78524164323007652E9 /* ImageStyler.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 30E8E78424164323007652E9 /* ImageStyler.mlmodel */; };
 		30F1499B241DB75B00399BF6 /* StylesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F1499A241DB75B00399BF6 /* StylesData.swift */; };
+		30F1499D241DCAE600399BF6 /* ImageStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F1499C241DCAE600399BF6 /* ImageStorageService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		30E8E77D24164290007652E9 /* MLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLService.swift; sourceTree = "<group>"; };
 		30E8E78424164323007652E9 /* ImageStyler.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = ImageStyler.mlmodel; path = Model/ImageStyler.mlmodel; sourceTree = SOURCE_ROOT; };
 		30F1499A241DB75B00399BF6 /* StylesData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylesData.swift; sourceTree = "<group>"; };
+		30F1499C241DCAE600399BF6 /* ImageStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorageService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 			children = (
 				30F1499A241DB75B00399BF6 /* StylesData.swift */,
 				30CEB1FF241ADB9400FA31BD /* ImageProcessingService.swift */,
+				30F1499C241DCAE600399BF6 /* ImageStorageService.swift */,
 				30E8E783241642EE007652E9 /* ML */,
 			);
 			path = Service;
@@ -287,6 +290,7 @@
 				301108E024125DBD00A0AB66 /* AppDelegate.swift in Sources */,
 				301108E224125DBD00A0AB66 /* SceneDelegate.swift in Sources */,
 				30DD3258241D4D4C00B8DEB7 /* Filter.swift in Sources */,
+				30F1499D241DCAE600399BF6 /* ImageStorageService.swift in Sources */,
 				30E8E77E24164290007652E9 /* MLService.swift in Sources */,
 				30DD324F241C7A0900B8DEB7 /* ShareSheet.swift in Sources */,
 			);

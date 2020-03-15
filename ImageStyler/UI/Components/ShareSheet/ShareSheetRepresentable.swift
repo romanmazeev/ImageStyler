@@ -15,16 +15,10 @@ struct ShareSheetRepresentable: UIViewControllerRepresentable {
         _ error: Error?
     ) -> Void
 
-    let activityItems: [Any]
-    let applicationActivities: [UIActivity]? = nil
-    let excludedActivityTypes: [UIActivity.ActivityType]? = nil
-    let completionWithItemsHandler: CompletionHandler? = nil
+    let activityItems: [URL?]
 
     func makeUIViewController(context: Context) -> UIActivityViewController {
-        let controller = UIActivityViewController(activityItems: activityItems, applicationActivities: applicationActivities)
-        controller.excludedActivityTypes = excludedActivityTypes
-        controller.completionWithItemsHandler = completionWithItemsHandler
-        return controller
+        return UIActivityViewController(activityItems: activityItems as [Any], applicationActivities: nil)
     }
 
     func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {}

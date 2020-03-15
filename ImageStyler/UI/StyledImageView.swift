@@ -48,7 +48,7 @@ struct StyledImageView: View {
             Image(systemName: "square.and.arrow.up")
         }))
         .sheet(isPresented: $isShareSheetPresented) {
-            ShareSheet(activityItems: [self.viewModel.$stylizedImage])
+            ShareSheet(shareImageURL: self.$viewModel.stylizedImageURL)
         }
     }
 }

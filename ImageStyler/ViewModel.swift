@@ -16,10 +16,12 @@ class ViewModel: ObservableObject {
     @Published var selectedFilter = StylesData.styles.first!
 
     @Published var stylizedImage: UIImage?
+    @Published var stylizedImageURL: URL?
     @Published var isLoading = false
 
     private let mlService = MLService()
     private let imageProcessingService = ImageProcessingService()
+    private let imageStorageService = ImageStorageService()
     private var cancellables: Set<AnyCancellable> = .init()
 
     init() {
@@ -58,9 +60,11 @@ class ViewModel: ObservableObject {
 
         $stylizedImage
             .compactMap { $0 }
-            .sink { _ in
+            .handleEvents(receiveOutput: { _ in
                 self.isLoading = false
-            }
+            })
+            .map { self.imageStorageService.saveImage($0, key: "Stylized image") }
+            .assign(to: \.stylizedImageURL, on: self)
             .store(in: &cancellables)
     }
 }

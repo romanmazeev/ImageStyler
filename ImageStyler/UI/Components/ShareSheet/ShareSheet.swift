@@ -9,15 +9,15 @@
 import SwiftUI
 
 struct ShareSheet: View {
-    @State var activityItems: [Any]
+    @Binding var shareImageURL: URL?
 
     var body: some View {
-        ShareSheetRepresentable(activityItems: activityItems)
+        ShareSheetRepresentable(activityItems: [shareImageURL])
     }
 }
 
 struct ShareSheet_Previews: PreviewProvider {
     static var previews: some View {
-        ShareSheet(activityItems: [])
+        ShareSheet(shareImageURL: .constant(URL(fileURLWithPath: "")))
     }
 }
