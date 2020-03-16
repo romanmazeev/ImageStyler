@@ -30,6 +30,7 @@ class ViewModel: ObservableObject {
                 self.stylizedImage = nil
                 self.isLoading =  true
             })
+            .receive(on: DispatchQueue.global())
             .compactMap { $0 }
             .setFailureType(to: Error.self)
             .flatMap { [unowned self] in
@@ -38,21 +39,21 @@ class ViewModel: ObservableObject {
             .flatMap { [unowned self] in
                 self.imageProcessingService.pixelBuffer(from: $0)
             }
-            .receive(on: DispatchQueue.global())
             .flatMap { [unowned self] in
                 self.mlService.transfer($0, styleIndex: self.selectedStyle.id)
             }
-            .receive(on: RunLoop.main)
             .flatMap { [unowned self] in
                 self.imageProcessingService.image(from: $0)
             }
             .map { Optional($0) }
             .assertNoFailure()
+            .receive(on: RunLoop.main)
             .assign(to: \.stylizedImage, on: self)
             .store(in: &cancellables)
 
 
         $selectedStyle
+            .receive(on: RunLoop.main)
             .sink { _ in
                 self.selectedImage = self.selectedImage
             }
@@ -63,7 +64,9 @@ class ViewModel: ObservableObject {
             .handleEvents(receiveOutput: { _ in
                 self.isLoading = false
             })
+            .receive(on: DispatchQueue.global())
             .map { self.imageStorageService.saveImage($0, key: "Stylized image") }
+            .receive(on: RunLoop.main)
             .assign(to: \.stylizedImageURL, on: self)
             .store(in: &cancellables)
     }
