@@ -32,7 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		301108DC24125DBD00A0AB66 /* ImageStyler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageStyler.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		301108DC24125DBD00A0AB66 /* Image Styler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Image Styler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		301108DF24125DBD00A0AB66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		301108E124125DBD00A0AB66 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		301108E524125DBD00A0AB66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 		301108DD24125DBD00A0AB66 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				301108DC24125DBD00A0AB66 /* ImageStyler.app */,
+				301108DC24125DBD00A0AB66 /* Image Styler.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -199,7 +199,7 @@
 			);
 			name = ImageStyler;
 			productName = ImageStyler;
-			productReference = 301108DC24125DBD00A0AB66 /* ImageStyler.app */;
+			productReference = 301108DC24125DBD00A0AB66 /* Image Styler.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -440,7 +440,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.romanmazeev.ImageStyler;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Image Styler";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -463,7 +463,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.romanmazeev.ImageStyler;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Image Styler";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
