@@ -47,7 +47,7 @@ struct StyledImageView: View {
             .disabled(self.viewModel.stylizedImage == nil)
         )
         .sheet(isPresented: $isShareSheetPresented) {
-            ShareSheet(shareImageURL: self.viewModel.stylizedImageURL)
+            ShareSheet(shareImageURL: self.viewModel.stylizedImageURL!)
         }
     }
 }
