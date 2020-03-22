@@ -18,7 +18,7 @@ struct ShareSheetRepresentable: UIViewControllerRepresentable {
     let activityItems: [URL?]
 
     func makeUIViewController(context: Context) -> UIActivityViewController {
-        return UIActivityViewController(activityItems: activityItems as [Any], applicationActivities: nil)
+        UIActivityViewController(activityItems: activityItems as [Any], applicationActivities: nil)
     }
 
     func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {}
