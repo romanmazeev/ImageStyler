@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ShareSheet: View {
-    @Binding var shareImageURL: URL?
+    var shareImageURL: URL?
 
     var body: some View {
         ShareSheetRepresentable(activityItems: [shareImageURL])
@@ -18,6 +18,6 @@ struct ShareSheet: View {
 
 struct ShareSheet_Previews: PreviewProvider {
     static var previews: some View {
-        ShareSheet(shareImageURL: .constant(URL(fileURLWithPath: "")))
+        ShareSheet(shareImageURL: URL(fileURLWithPath: ""))
     }
 }

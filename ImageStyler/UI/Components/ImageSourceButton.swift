@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct ImageSourceButton: View {
-    @State var style: Style
-    @State var actionHandler: () -> Void
+    var style: Style
+    var actionHandler: () -> Void
 
     enum Style: CaseIterable {
         case library

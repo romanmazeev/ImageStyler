@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct StyleView: View {
-    @State var style: Style
+    var style: Style
     @Binding var selectedStyle: Style
 
     var body: some View {

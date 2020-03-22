@@ -42,21 +42,17 @@ struct ImagePickerRepresentable : UIViewControllerRepresentable {
             self.cancelHandler = cancelHandler
             self.pickedImageHandler = pickedImageHandler
         }
-
+        
         func imagePickerController(
             _ picker: UIImagePickerController,
             didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]
         ) {
             guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
-            DispatchQueue.main.async {
-                self.pickedImageHandler?(image)
-            }
+            self.pickedImageHandler?(image)
         }
-
+        
         func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-            DispatchQueue.main.async {
-                self.cancelHandler?()
-            }
+            self.cancelHandler?()
         }
     }
 }

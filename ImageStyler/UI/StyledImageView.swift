@@ -38,15 +38,16 @@ struct StyledImageView: View {
         }
 
         .navigationBarTitle("Stylized image")
-        .navigationBarItems(trailing: Button(action: {
-            if self.viewModel.stylizedImage != nil {
+        .navigationBarItems(trailing:
+            Button(action: {
                 self.isShareSheetPresented = true
-            }
-        }, label: {
-            Image(systemName: "square.and.arrow.up")
-        }))
+            }, label: {
+                Image(systemName: "square.and.arrow.up")
+            })
+            .disabled(self.viewModel.stylizedImage == nil)
+        )
         .sheet(isPresented: $isShareSheetPresented) {
-            ShareSheet(shareImageURL: self.$viewModel.stylizedImageURL)
+            ShareSheet(shareImageURL: self.viewModel.stylizedImageURL)
         }
     }
 }
