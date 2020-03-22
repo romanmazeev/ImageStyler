@@ -10,12 +10,11 @@ import SwiftUI
 
 struct ImagePicker: View {
     @Binding var image: UIImage?
-    @Binding var isImageSelected: Bool?
-    @Binding var isImageCaptured: Bool?
+    @Binding var isImageSelected: Bool
     let sourceType: UIImagePickerController.SourceType
 
     var body: some View {
-        ImagePickerRepresentable(image: $image, isImageSelected: $isImageSelected, isImageCaptured: $isImageCaptured, sourceType: sourceType)
+        ImagePickerRepresentable(image: $image, isImageSelected: $isImageSelected, sourceType: sourceType)
     }
 }
 
@@ -24,7 +23,6 @@ struct PhotoCapture_Previews: PreviewProvider {
         ImagePicker(
             image: .constant(nil),
             isImageSelected: .constant(false),
-            isImageCaptured: .constant(false),
             sourceType: .photoLibrary)
     }
 }

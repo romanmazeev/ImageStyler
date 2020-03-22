@@ -11,27 +11,17 @@ import SwiftUI
 struct ImagePickerRepresentable : UIViewControllerRepresentable {
     @Environment(\.presentationMode) var mode
     @Binding var image : UIImage?
-    @Binding var isImageSelected: Bool?
-    @Binding var isImageCaptured: Bool?
+    @Binding var isImageSelected: Bool
     let sourceType: UIImagePickerController.SourceType
 
     func makeCoordinator() -> Coordinator {
         Coordinator(cancelHandler: {
             self.mode.wrappedValue.dismiss()
-            self.setImageSelected(false)
+            self.isImageSelected = false
         }) { image in
             self.image = image
-            self.setImageSelected(true)
+            self.isImageSelected = true
             self.mode.wrappedValue.dismiss()
-        }
-    }
-
-    private func setImageSelected(_ isImageSelected: Bool) {
-        switch self.sourceType  {
-            case .camera: self.isImageCaptured = isImageSelected
-            case .photoLibrary: self.isImageSelected = isImageSelected
-            case .savedPhotosAlbum: break
-            @unknown default: break
         }
     }
 

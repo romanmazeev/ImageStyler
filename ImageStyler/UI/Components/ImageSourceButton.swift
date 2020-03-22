@@ -12,7 +12,7 @@ struct ImageSourceButton: View {
     @State var style: Style
     @State var actionHandler: () -> Void
 
-    enum Style {
+    enum Style: CaseIterable {
         case library
         case camera
     }
