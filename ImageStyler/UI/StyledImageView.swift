@@ -15,13 +15,14 @@ struct StyledImageView: View {
     
     var body: some View {
         VStack {
+            Spacer()
+            
             if viewModel.stylizedImage != nil {
                 Image(uiImage: viewModel.stylizedImage!)
                     .resizable()
                     .scaledToFit()
-                    .padding([.horizontal, .top])
+                    .padding(.horizontal)
             } else {
-                Spacer()
                 ActivityIndicator(isAnimating: $viewModel.isLoading, style: .medium)
             }
 
