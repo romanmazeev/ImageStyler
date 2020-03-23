@@ -26,7 +26,7 @@ class ViewModel: ObservableObject {
 
     init() {
         $selectedImage
-            .handleEvents(receiveOutput: { _ in
+            .handleEvents(receiveOutput: { [unowned self] _ in
                 self.stylizedImage = nil
                 self.isLoading =  true
             })
@@ -54,18 +54,20 @@ class ViewModel: ObservableObject {
 
         $selectedStyle
             .receive(on: RunLoop.main)
-            .sink { _ in
+            .sink { [unowned self] _ in
                 self.selectedImage = self.selectedImage
             }
             .store(in: &cancellables)
 
         $stylizedImage
             .compactMap { $0 }
-            .handleEvents(receiveOutput: { _ in
+            .handleEvents(receiveOutput: { [unowned self] _ in
                 self.isLoading = false
             })
             .receive(on: DispatchQueue.global())
-            .map { self.imageStorageService.saveImage($0, key: "Stylized image") }
+            .map { [unowned self] in
+                self.imageStorageService.saveImage($0, key: "Stylized image")
+            }
             .receive(on: RunLoop.main)
             .assign(to: \.stylizedImageURL, on: self)
             .store(in: &cancellables)
