@@ -11,6 +11,9 @@ import SwiftUI
 struct ImageSourceButton: View {
     var style: Style
     var actionHandler: () -> Void
+    private var isEnabled: Bool {
+        UIImagePickerController.isSourceTypeAvailable(style == .library ? .photoLibrary : .camera)
+    }
 
     enum Style: CaseIterable {
         case library
@@ -25,10 +28,11 @@ struct ImageSourceButton: View {
             }) {
                 Text(verbatim: style == .library ? "Import from library" : "Take a photo")
             }
+            .disabled(!isEnabled)
         }
         .padding()
         .foregroundColor(.white)
-        .background(Color.blue)
+        .background(isEnabled ? Color.blue : Color.gray)
         .cornerRadius(12)
     }
 }
