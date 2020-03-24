@@ -26,13 +26,10 @@ class ViewModel: ObservableObject {
 
     init() {
         $selectedImage
-            .handleEvents(receiveOutput: { [unowned self] _ in
-                self.stylizedImage = nil
-                self.isLoading =  true
-            })
-            .receive(on: DispatchQueue.global())
+            .receive(on: RunLoop.main)
             .compactMap { $0 }
             .setFailureType(to: Error.self)
+            .receive(on: DispatchQueue.global())
             .flatMap { [unowned self] in
                 self.imageProcessingService.resizeImage(image: $0, targetSize: CGSize(width: 640, height: 640))
             }
@@ -45,25 +42,27 @@ class ViewModel: ObservableObject {
             .flatMap { [unowned self] in
                 self.imageProcessingService.image(from: $0)
             }
-            .map { Optional($0) }
-            .assertNoFailure()
             .receive(on: RunLoop.main)
+            .map { Optional($0) }
+            .replaceError(with: nil)
             .assign(to: \.stylizedImage, on: self)
             .store(in: &cancellables)
 
-
         $selectedStyle
             .receive(on: RunLoop.main)
-            .sink { [unowned self] _ in
-                self.selectedImage = self.selectedImage
+            .combineLatest($selectedImage)
+            .sink { [unowned self] (_, image) in
+                self.stylizedImage = nil
+                self.selectedImage = image
             }
             .store(in: &cancellables)
 
         $stylizedImage
-            .compactMap { $0 }
-            .handleEvents(receiveOutput: { [unowned self] _ in
-                self.isLoading = false
+            .receive(on: RunLoop.main)
+            .handleEvents(receiveOutput: { [unowned self] image in
+                self.isLoading = image == nil
             })
+            .compactMap { $0 }
             .receive(on: DispatchQueue.global())
             .map { [unowned self] in
                 self.imageStorageService.saveImage($0, key: "Stylized image")

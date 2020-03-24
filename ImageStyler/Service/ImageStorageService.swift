@@ -9,8 +9,6 @@
 import SwiftUI
 
 class ImageStorageService {
-    let imageCache = NSCache<NSString, UIImage>()
-
     func saveImage(_ image: UIImage, key: String) ->  URL? {
         guard let jpegRepresentation = image.jpegData(compressionQuality: 0) else { return nil }
         if let filePath = filePath(forKey: key) {
