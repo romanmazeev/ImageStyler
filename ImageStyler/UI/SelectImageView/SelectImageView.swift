@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct SelectImageView: View {
-    @EnvironmentObject var viewModel: ViewModel
+    @ObservedObject var viewModel: SelectImageViewModel
 
     @State private var isImagePickerShowed = false
     @State private var sourceType: UIImagePickerController.SourceType = .camera
@@ -20,7 +20,7 @@ struct SelectImageView: View {
             VStack {
                 Spacer()
 
-                NavigationLink(destination: StyledImageView(), isActive: self.$isImageSelected) {
+                NavigationLink(destination: viewModel.styledImageView, isActive: self.$isImageSelected) {
                     // SwiftUI workaround
                    Spacer().fixedSize()
                 }
@@ -49,6 +49,6 @@ struct SelectImageView: View {
 
 struct SelectImageView_Previews: PreviewProvider {
     static var previews: some View {
-        SelectImageView()
+        SelectImageView(viewModel: SelectImageViewModel())
     }
 }

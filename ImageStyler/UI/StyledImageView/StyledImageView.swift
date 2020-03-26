@@ -10,7 +10,8 @@ import SwiftUI
 import Combine
 
 struct StyledImageView: View {
-    @EnvironmentObject var viewModel: ViewModel
+    @ObservedObject var viewModel: StyledImageViewModel
+    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @State private var isShareSheetPresented = false
     
     var body: some View {
@@ -50,11 +51,21 @@ struct StyledImageView: View {
         .sheet(isPresented: $isShareSheetPresented) {
             ShareSheet(shareImageURL: self.viewModel.stylizedImageURL!)
         }
+        .alert(isPresented: $viewModel.isError) {
+            Alert(
+                title: Text(verbatim: "Error"),
+                message: Text(verbatim: viewModel.errorMessage!),
+                dismissButton: .default(Text(verbatim: "OK")) {
+                    self.mode.wrappedValue.dismiss()
+                }
+            )
+        }
+        .onAppear(perform: viewModel.transferImage)
     }
 }
 
 struct StyledImageView_Previews: PreviewProvider {
     static var previews: some View {
-        StyledImageView()
+        StyledImageView(viewModel: StyledImageViewModel(selectedImage: UIImage()))
     }
 }

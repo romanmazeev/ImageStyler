@@ -30,11 +30,7 @@ class ImageProcessingService {
             attrs, &pixelBuffer
         )
         
-        guard (status == kCVReturnSuccess) else {
-            return Future { promise in
-                promise(.failure(ImageProcessingServiceError.bufferCreation))
-            }
-        }
+        guard (status == kCVReturnSuccess) else { return Future { $0(.failure(ImageProcessingServiceError.bufferCreation)) } }
 
         CVPixelBufferLockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
         let pixelData = CVPixelBufferGetBaseAddress(pixelBuffer!)
@@ -58,10 +54,7 @@ class ImageProcessingService {
         UIGraphicsPopContext()
         CVPixelBufferUnlockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
 
-        return Future { promise in
-            promise(.success(pixelBuffer!))
-        }
-
+        return Future { $0(.success(pixelBuffer!)) }
     }
     
     func image(from pixelBuffer: CVPixelBuffer) -> Future<UIImage, Error> {
@@ -73,9 +66,7 @@ class ImageProcessingService {
                 promise(.success(UIImage(cgImage: cgImage)))
             }
         } else {
-            return Future { promise in
-                promise(.failure(ImageProcessingServiceError.cgImageCreation))
-            }
+            return Future { $0(.failure(ImageProcessingServiceError.cgImageCreation)) }
         }
     }
 

@@ -12,7 +12,7 @@ import Combine
 class MLService {
     private let model = ImageStyler()
 
-    func transfer(_ imagePixelBuffer: CVBuffer, styleIndex: Int) -> Future<CVPixelBuffer, Error> {
+    func transfer(_ imagePixelBuffer: CVBuffer, styleIndex: Int) -> AnyPublisher<CVPixelBuffer, Error> {
         Future { [unowned self] promise in
             do {
                 let styleArray = try MLMultiArray([Double](repeating: 0, count: StylesData.styles.count))
@@ -25,6 +25,7 @@ class MLService {
                 promise(.failure(error))
             }
         }
+        .eraseToAnyPublisher()
     }
 }
 
