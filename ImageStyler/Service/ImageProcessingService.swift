@@ -18,7 +18,7 @@ enum ImageProcessingServiceError: Error {
 }
 
 class ImageProcessingService {
-    func pixelBuffer(from image: UIImage) -> Future<CVPixelBuffer, Error> {
+    func pixelBuffer(from image: UIImage) -> AnyPublisher<CVPixelBuffer, Error> {
         let attrs = [kCVPixelBufferCGImageCompatibilityKey: kCFBooleanTrue,
                      kCVPixelBufferCGBitmapContextCompatibilityKey: kCFBooleanTrue] as CFDictionary
         var pixelBuffer : CVPixelBuffer?
@@ -30,7 +30,10 @@ class ImageProcessingService {
             attrs, &pixelBuffer
         )
         
-        guard (status == kCVReturnSuccess) else { return Future { $0(.failure(ImageProcessingServiceError.bufferCreation)) } }
+        guard (status == kCVReturnSuccess) else {
+            return Future { $0(.failure(ImageProcessingServiceError.bufferCreation)) }
+                .eraseToAnyPublisher()
+        }
 
         CVPixelBufferLockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
         let pixelData = CVPixelBufferGetBaseAddress(pixelBuffer!)
@@ -55,22 +58,27 @@ class ImageProcessingService {
         CVPixelBufferUnlockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
 
         return Future { $0(.success(pixelBuffer!)) }
+            .eraseToAnyPublisher()
     }
+
     
-    func image(from pixelBuffer: CVPixelBuffer) -> Future<UIImage, Error> {
+    func image(from pixelBuffer: CVPixelBuffer) -> AnyPublisher<UIImage, Error> {
         let ciImage = CIImage(cvPixelBuffer: pixelBuffer)
         let tempContext = CIContext(options: nil)
-        let tempRect = CGRect(x: 0, y: 0, width: CVPixelBufferGetWidth(pixelBuffer), height: CVPixelBufferGetHeight(pixelBuffer))
+        let tempRect = CGRect(x: 0,
+                              y: 0,
+                              width: CVPixelBufferGetWidth(pixelBuffer),
+                              height: CVPixelBufferGetHeight(pixelBuffer))
         if let cgImage = tempContext.createCGImage(ciImage, from: tempRect) {
-            return Future { promise in
-                promise(.success(UIImage(cgImage: cgImage)))
-            }
+            return Future { $0(.success(UIImage(cgImage: cgImage))) }
+                .eraseToAnyPublisher()
         } else {
             return Future { $0(.failure(ImageProcessingServiceError.cgImageCreation)) }
+                .eraseToAnyPublisher()
         }
     }
 
-    func resizeImage(image: UIImage, targetSize: CGSize) -> Future<UIImage, Error> {
+    func resizeImage(image: UIImage, targetSize: CGSize) -> AnyPublisher<UIImage, Error> {
         let size = image.size
 
         let widthRatio  = targetSize.width  / size.width
@@ -93,5 +101,6 @@ class ImageProcessingService {
                 promise(.failure(ImageProcessingServiceError.imageResizing))
             }
         }
+        .eraseToAnyPublisher()
     }
 }

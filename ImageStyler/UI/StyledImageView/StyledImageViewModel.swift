@@ -70,12 +70,11 @@ class StyledImageViewModel: ObservableObject {
                 receiveCompletion: { completion in
                     if case .failure(let error) = completion {
                         self.errorMessage = error.localizedDescription
-                        self.isLoading = false
                     }
+                    self.isLoading = false
                 }, receiveValue: { image in
                     self.stylizedImage = image
                     self.isLoading = false
-                    self.errorMessage = nil
                 }
             )
             .store(in: &cancellables)
