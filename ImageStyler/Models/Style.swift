@@ -12,4 +12,5 @@ struct Style: Equatable {
     let id: Int
     let imageData: Data
     let name: String
+    var isSelected = false
 }

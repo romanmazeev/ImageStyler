@@ -12,10 +12,10 @@ import Combine
 class MLService {
     private let model = ImageStyler()
 
-    func transfer(_ imagePixelBuffer: CVBuffer, styleIndex: Int) -> AnyPublisher<CVPixelBuffer, Error> {
+    func transfer(_ imagePixelBuffer: CVPixelBuffer, styleIndex: Int) -> AnyPublisher<CVPixelBuffer, Error> {
         Future { [unowned self] promise in
             do {
-                let styleArray = try MLMultiArray([Double](repeating: 0, count: StylesData.styles.count))
+                let styleArray = try MLMultiArray([Double](repeating: 0, count: StylesDataSource.shared.styles.count))
                 styleArray[styleIndex] = 1
 
                 let predictionOutput = try self.model.prediction(image: imagePixelBuffer, index: styleArray)
