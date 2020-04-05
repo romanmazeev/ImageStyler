@@ -11,6 +11,8 @@ import Combine
 
 struct ContentView: View {
     @ObservedObject var viewModel: ViewModel
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.verticalSizeClass) var verticalSizeClass
     @State private var isShareSheetPresented = false
     @State private var isImagePickerShowed = false
     @State private var imagePickerSourceType: UIImagePickerController.SourceType = .camera
@@ -21,7 +23,7 @@ struct ContentView: View {
                 if viewModel.selectedImage == nil {
                     initialButtons
                 } else {
-                    styledImageView
+                    imageStyling
                 }
             }
             .navigationBarTitle("Image Styler")
@@ -35,8 +37,7 @@ struct ContentView: View {
                                     style == .library ? .photoLibrary : .camera
                                 )
                             ) {
-                                self.isImagePickerShowed = true
-                                self.imagePickerSourceType = style == .library ? .photoLibrary : .camera
+                                self.sourceButtonTapped(style: style)
                             }
                             .padding(.trailing)
                         }
@@ -72,8 +73,7 @@ struct ContentView: View {
                         style == .library ? .photoLibrary : .camera
                     )
                 ) {
-                    self.isImagePickerShowed = true
-                    self.imagePickerSourceType = style == .library ? .photoLibrary : .camera
+                    self.sourceButtonTapped(style: style)
                 }
                 .padding()
             }
@@ -82,43 +82,85 @@ struct ContentView: View {
         }
     }
 
-    var styledImageView: some View {
-        VStack {
-            Spacer()
-
-            if viewModel.isLoading {
-                ActivityIndicator(style: .medium)
-            } else if viewModel.stylizedImage != nil {
-                Image(uiImage: viewModel.stylizedImage!)
-                    .resizable()
-                    .scaledToFit()
-                    .padding(.horizontal)
-            } else {
-
-            }
-
-            Spacer()
-
-            ScrollView(.horizontal, showsIndicators: false) {
+    var imageStyling: some View {
+        if verticalSizeClass == .compact {
+            return AnyView(
                 HStack {
-                    ForEach(viewModel.styles, id: \.id) { style in
-                        StyleView(style: style) {
-                            self.viewModel.selectedStyleId = style.id
-                        }
-                    }
+                    Spacer()
+
+                    styledImage
+
+                    Spacer()
+
+                    filtersScroll
+                }
+            )
+        } else {
+            return AnyView(
+                VStack {
+                    Spacer()
+
+                    styledImage
+                    
+                    Spacer()
+
+                    filtersScroll
+                }
+            )
+        }
+    }
+
+    var styledImage: some View {
+        if viewModel.isLoading {
+            return AnyView(ActivityIndicator(style: .medium))
+        } else if viewModel.stylizedImage != nil {
+            if verticalSizeClass == .compact {
+                return AnyView(
+                    Image(uiImage: viewModel.stylizedImage!)
+                        .resizable()
+                        .scaledToFit()
+                        .padding()
+                )
+            } else {
+                return AnyView(
+                    Image(uiImage: viewModel.stylizedImage!)
+                        .resizable()
+                        .scaledToFit()
+                        .padding(.horizontal)
+                )
+            }
+        } else {
+            return AnyView(EmptyView())
+        }
+    }
+
+    var filtersScroll: some View {
+        ScrollView(verticalSizeClass == .compact ? .vertical : .horizontal, showsIndicators: false) {
+            if verticalSizeClass == .compact {
+                VStack {
+                    filters
+                }
+                .padding()
+            } else {
+                HStack {
+                    filters
                 }
                 .padding()
             }
         }
-        .alert(isPresented: $viewModel.isError) {
-            Alert(
-                title: Text(verbatim: "Can not stylize image"),
-                message: Text(verbatim: "Choose another image"),
-                dismissButton: .default(Text(verbatim: "OK")) {
-                    self.viewModel.selectedImage = nil
-                }
-            )
+    }
+
+    var filters: some View {
+        ForEach(viewModel.styles, id: \.id) { style in
+            StyleView(style: style) {
+                self.viewModel.selectedStyleId = style.id
+            }
         }
+    }
+
+    private func sourceButtonTapped(style: SourceButtonStyle) {
+        self.isImagePickerShowed = true
+        self.imagePickerSourceType = style == .library ? .photoLibrary : .camera
     }
 }
 
