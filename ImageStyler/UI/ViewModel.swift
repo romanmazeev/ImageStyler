@@ -66,7 +66,7 @@ class ViewModel: ObservableObject {
     }
 
     private func transferImage(selectedStyleIndex: Int, selectedImage: UIImage) {
-        guard let resizedImage = selectedImage.fixedOrientation()?.cgImage?.resize(toMaxWidth: 650),
+        guard let resizedImage = selectedImage.fixedOrientation()?.cgImage?.resize(toMaxWidth: 1024),
             let pixelBuffer = resizedImage.pixelBuffer else {
                 DispatchQueue.main.async { [unowned self] in
                     self.isError = true
