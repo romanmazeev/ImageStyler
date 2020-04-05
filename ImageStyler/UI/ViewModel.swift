@@ -10,8 +10,9 @@ import Combine
 import SwiftUI
 
 class ViewModel: ObservableObject {
+
     // MARK: Input
-    let selectedStyleId = PassthroughSubject<Int, Never>()
+    @Published var selectedStyleId = 0
     @Published var selectedImage: UIImage?
 
     // MARK: Output
@@ -21,31 +22,25 @@ class ViewModel: ObservableObject {
     @Published var isError = false
     @Published private(set) var isLoading = true
 
-    var cancellables: Set<AnyCancellable> = .init()
+    private var cancellables: Set<AnyCancellable> = .init()
 
     private let mlService = MLService()
-    private let imageStorageService = ImageStorageService()
 
     init() {
-        selectedStyleId
-            .removeDuplicates()
-            .combineLatest($selectedImage)
+        $selectedImage
+            .compactMap { $0 }
+            .combineLatest($selectedStyleId)
+            .removeDuplicates { $0 == $1 }
             .handleEvents(receiveOutput: { [unowned self] _ in
                 self.isLoading = true
             })
-            .setFailureType(to: Error.self)
             .receive(on: DispatchQueue.global())
-            .flatMap { [unowned self] in self.mlService.transfer($0.1!.cgImage!.pixelBuffer(width: 640, height: 640, orientation: .up)!, styleIndex: $0.0) }
-            .receive(on: RunLoop.main)
-            .map { UIImage(cgImage: CGImage.create(pixelBuffer: $0)!) }
-            .replaceError(with: UIImage())
-            .handleEvents(receiveOutput: { [unowned self] _ in
-                self.isLoading = false
-            })
-            .assign(to: \.stylizedImage, on: self)
+            .sink { [unowned self] in
+                self.transferImage(selectedStyleIndex: $0.1, selectedImage: $0.0)
+            }
             .store(in: &cancellables)
 
-        selectedStyleId
+        $selectedStyleId
             .removeDuplicates()
             .receive(on: RunLoop.main)
             .map { StylesDataSource.shared.selectStyle($0) }
@@ -56,18 +51,47 @@ class ViewModel: ObservableObject {
             .receive(on: RunLoop.main)
             .compactMap { $0 }
             .receive(on: DispatchQueue.global())
-            .map { self.imageStorageService.saveImage($0, key: "Stylized image") }
+            .map { $0.save(key: "Stylized image") }
             .receive(on: RunLoop.main)
             .assign(to: \.stylizedImageURL, on: self)
             .store(in: &cancellables)
-    }
-}
 
-// Combine memory leak fix
-extension Publisher where Failure == Never {
-    func assign<Root: AnyObject>(to keyPath: ReferenceWritableKeyPath<Root, Output>, on root: Root) -> AnyCancellable {
-       sink { [weak root] in
-            root?[keyPath: keyPath] = $0
+        $isError
+            .filter { $0 }
+            .sink { [unowned self] _ in
+                self.isLoading = false
+                self.stylizedImage = nil
+            }
+            .store(in: &cancellables)
+    }
+
+    private func transferImage(selectedStyleIndex: Int, selectedImage: UIImage) {
+        guard let resizedImage = selectedImage.fixedOrientation()?.cgImage?.resize(toMaxWidth: 650),
+            let pixelBuffer = resizedImage.pixelBuffer else {
+                DispatchQueue.main.async { [unowned self] in
+                    self.isError = true
+                }
+
+                return
         }
+
+        mlService.transfer(pixelBuffer, styleIndex: selectedStyleIndex)
+            .map { UIImage(cgImage: CGImage.create(pixelBuffer: $0)!) }
+            .receive(on: RunLoop.main)
+            .handleEvents(
+                receiveOutput: { [unowned self] _ in
+                    self.isLoading = false
+                }
+            )
+            .sink(
+                receiveCompletion: { [unowned self] result in
+                    if case .failure = result {
+                        self.isError = true
+                    }
+                }, receiveValue: { [unowned self] stylizedImage in
+                    self.stylizedImage = stylizedImage
+                }
+            )
+            .store(in: &cancellables)
     }
 }

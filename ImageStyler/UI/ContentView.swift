@@ -14,7 +14,7 @@ struct ContentView: View {
     @State private var isShareSheetPresented = false
     @State private var isImagePickerShowed = false
     @State private var imagePickerSourceType: UIImagePickerController.SourceType = .camera
-    
+
     var body: some View {
         NavigationView {
             VStack {
@@ -102,19 +102,19 @@ struct ContentView: View {
                 HStack {
                     ForEach(viewModel.styles, id: \.id) { style in
                         StyleView(style: style) {
-                            self.viewModel.selectedStyleId.send(style.id)
+                            self.viewModel.selectedStyleId = style.id
                         }
                     }
                 }
                 .padding()
             }
         }
-        .onAppear(perform: { self.viewModel.selectedStyleId.send(1) })
         .alert(isPresented: $viewModel.isError) {
             Alert(
-                title: Text(verbatim: "Error"),
-                message: Text(verbatim: "Error on image styling"),
+                title: Text(verbatim: "Can not stylize image"),
+                message: Text(verbatim: "Choose another image"),
                 dismissButton: .default(Text(verbatim: "OK")) {
+                    self.viewModel.selectedImage = nil
                 }
             )
         }
