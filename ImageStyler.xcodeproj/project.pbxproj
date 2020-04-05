@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		301108E024125DBD00A0AB66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301108DF24125DBD00A0AB66 /* AppDelegate.swift */; };
 		301108E224125DBD00A0AB66 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301108E124125DBD00A0AB66 /* SceneDelegate.swift */; };
-		301108E624125DBD00A0AB66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 301108E524125DBD00A0AB66 /* Assets.xcassets */; };
 		301108EC24125DBD00A0AB66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 301108EA24125DBD00A0AB66 /* LaunchScreen.storyboard */; };
 		30559DFE2438EDB700F4A8C4 /* SmallSourceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30559DFD2438EDB700F4A8C4 /* SmallSourceButton.swift */; };
 		30559E012438EE4300F4A8C4 /* SourceButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30559E002438EE4300F4A8C4 /* SourceButtonStyle.swift */; };
@@ -17,6 +16,7 @@
 		30559E072439449100F4A8C4 /* CGImage+Resizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30559E062439449100F4A8C4 /* CGImage+Resizing.swift */; };
 		30559E0924394F8E00F4A8C4 /* UIImage+Saving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30559E0824394F8E00F4A8C4 /* UIImage+Saving.swift */; };
 		30559E0B2439688100F4A8C4 /* Combine+Assign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30559E0A2439688100F4A8C4 /* Combine+Assign.swift */; };
+		309FCA54243A4806002BB8F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 309FCA53243A4806002BB8F2 /* Assets.xcassets */; };
 		30CEB200241ADB9400FA31BD /* CGImage+CVPixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CEB1FF241ADB9400FA31BD /* CGImage+CVPixelBuffer.swift */; };
 		30CEB202241ADBA300FA31BD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30CEB201241ADBA300FA31BD /* Preview Assets.xcassets */; };
 		30CEB215241ADC0400FA31BD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CEB213241ADC0400FA31BD /* ContentView.swift */; };
@@ -38,7 +38,6 @@
 		301108DC24125DBD00A0AB66 /* Image Styler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Image Styler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		301108DF24125DBD00A0AB66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		301108E124125DBD00A0AB66 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		301108E524125DBD00A0AB66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		301108EB24125DBD00A0AB66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		301108ED24125DBD00A0AB66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30559DFD2438EDB700F4A8C4 /* SmallSourceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallSourceButton.swift; sourceTree = "<group>"; };
@@ -47,6 +46,7 @@
 		30559E062439449100F4A8C4 /* CGImage+Resizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImage+Resizing.swift"; sourceTree = "<group>"; };
 		30559E0824394F8E00F4A8C4 /* UIImage+Saving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Saving.swift"; sourceTree = "<group>"; };
 		30559E0A2439688100F4A8C4 /* Combine+Assign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+Assign.swift"; sourceTree = "<group>"; };
+		309FCA53243A4806002BB8F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30CEB1FF241ADB9400FA31BD /* CGImage+CVPixelBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGImage+CVPixelBuffer.swift"; sourceTree = "<group>"; };
 		30CEB201241ADBA300FA31BD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		30CEB213241ADC0400FA31BD /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -110,8 +110,8 @@
 			children = (
 				301108DF24125DBD00A0AB66 /* AppDelegate.swift */,
 				301108E124125DBD00A0AB66 /* SceneDelegate.swift */,
-				301108E524125DBD00A0AB66 /* Assets.xcassets */,
-				30CEB201241ADBA300FA31BD /* Preview Assets.xcassets */,
+				309FCA53243A4806002BB8F2 /* Assets.xcassets */,
+				309FCA52243A47DD002BB8F2 /* Preview Content */,
 				301108EA24125DBD00A0AB66 /* LaunchScreen.storyboard */,
 				301108ED24125DBD00A0AB66 /* Info.plist */,
 			);
@@ -126,6 +126,14 @@
 				30559E002438EE4300F4A8C4 /* SourceButtonStyle.swift */,
 			);
 			path = SourceButton;
+			sourceTree = "<group>";
+		};
+		309FCA52243A47DD002BB8F2 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				30CEB201241ADBA300FA31BD /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		30CEB216241ADC4B00FA31BD /* Components */ = {
@@ -266,8 +274,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				30CEB202241ADBA300FA31BD /* Preview Assets.xcassets in Resources */,
+				309FCA54243A4806002BB8F2 /* Assets.xcassets in Resources */,
 				301108EC24125DBD00A0AB66 /* LaunchScreen.storyboard in Resources */,
-				301108E624125DBD00A0AB66 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,7 +466,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ImageStyler/ImageStyler.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"ImageStyler/Supporting Files/\"";
+				DEVELOPMENT_ASSET_PATHS = "ImageStyler/Supporting\\ Files/Preview\\ Content";
 				DEVELOPMENT_TEAM = 2AB5X5S74A;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "ImageStyler/Supporting Files/Info.plist";
@@ -481,7 +489,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = ImageStyler/ImageStyler.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"ImageStyler/Supporting Files/\"";
+				DEVELOPMENT_ASSET_PATHS = "ImageStyler/Supporting\\ Files/Preview\\ Content";
 				DEVELOPMENT_TEAM = 2AB5X5S74A;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "ImageStyler/Supporting Files/Info.plist";
