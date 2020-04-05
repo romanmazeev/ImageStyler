@@ -11,7 +11,6 @@
 		301108E224125DBD00A0AB66 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301108E124125DBD00A0AB66 /* SceneDelegate.swift */; };
 		301108E624125DBD00A0AB66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 301108E524125DBD00A0AB66 /* Assets.xcassets */; };
 		301108EC24125DBD00A0AB66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 301108EA24125DBD00A0AB66 /* LaunchScreen.storyboard */; };
-		301108F424125DFA00A0AB66 /* Model in Resources */ = {isa = PBXBuildFile; fileRef = 301108F324125DFA00A0AB66 /* Model */; };
 		30559DFE2438EDB700F4A8C4 /* SmallSourceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30559DFD2438EDB700F4A8C4 /* SmallSourceButton.swift */; };
 		30559E012438EE4300F4A8C4 /* SourceButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30559E002438EE4300F4A8C4 /* SourceButtonStyle.swift */; };
 		30559E052439394700F4A8C4 /* UIImage+Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30559E042439394700F4A8C4 /* UIImage+Rotation.swift */; };
@@ -42,7 +41,6 @@
 		301108E524125DBD00A0AB66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		301108EB24125DBD00A0AB66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		301108ED24125DBD00A0AB66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		301108F324125DFA00A0AB66 /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Model; sourceTree = "<group>"; };
 		30559DFD2438EDB700F4A8C4 /* SmallSourceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallSourceButton.swift; sourceTree = "<group>"; };
 		30559E002438EE4300F4A8C4 /* SourceButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceButtonStyle.swift; sourceTree = "<group>"; };
 		30559E042439394700F4A8C4 /* UIImage+Rotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Rotation.swift"; sourceTree = "<group>"; };
@@ -81,7 +79,6 @@
 		301108D324125DBD00A0AB66 = {
 			isa = PBXGroup;
 			children = (
-				301108F324125DFA00A0AB66 /* Model */,
 				301108DE24125DBD00A0AB66 /* ImageStyler */,
 				301108DD24125DBD00A0AB66 /* Products */,
 			);
@@ -270,7 +267,6 @@
 			files = (
 				30CEB202241ADBA300FA31BD /* Preview Assets.xcassets in Resources */,
 				301108EC24125DBD00A0AB66 /* LaunchScreen.storyboard in Resources */,
-				301108F424125DFA00A0AB66 /* Model in Resources */,
 				301108E624125DBD00A0AB66 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -473,9 +469,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.romanmazeev.ImageStyler;
 				PRODUCT_NAME = "Image Styler";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -496,9 +492,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.romanmazeev.ImageStyler;
 				PRODUCT_NAME = "Image Styler";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

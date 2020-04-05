@@ -58,6 +58,7 @@ struct ContentView: View {
                 ImagePicker(selectedImage: self.$viewModel.selectedImage, sourceType: self.imagePickerSourceType)
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 
     var initialButtons: some View {
