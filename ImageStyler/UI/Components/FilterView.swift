@@ -10,6 +10,7 @@ import SwiftUI
 
 struct StyleView: View {
     var style: Style
+    @Binding var disabled: Bool
     var action: () -> Void
 
     var body: some View {
@@ -24,7 +25,7 @@ struct StyleView: View {
         }
         .padding()
         .overlay(
-            RoundedRectangle(cornerRadius: 12).stroke(Color.blue)
+            RoundedRectangle(cornerRadius: 12).stroke(disabled ? Color.gray : Color.blue)
                 .opacity(style.isSelected ? 100 : 0)
         )
         .onTapGesture {
@@ -35,6 +36,6 @@ struct StyleView: View {
 
 struct StyleView_Previews: PreviewProvider {
     static var previews: some View {
-        StyleView(style: Style(id: 0, imageData: Data(), name: "Test", isSelected: false), action: {})
+        StyleView(style: Style(id: 0, imageData: Data(), name: "Test", isSelected: false), disabled: .constant(false), action: {})
     }
 }

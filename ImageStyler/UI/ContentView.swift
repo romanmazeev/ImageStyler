@@ -60,6 +60,15 @@ struct ContentView: View {
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
+        .alert(isPresented: $viewModel.isError) {
+            Alert(
+                title: Text(verbatim: "Error"),
+                message: Text(verbatim: "viewModel.errorMessage!"),
+                dismissButton: .default(Text(verbatim: "OK")) {
+                    self.viewModel.selectedImage = nil
+                }
+            )
+        }
     }
 
     var initialButtons: some View {
@@ -152,7 +161,7 @@ struct ContentView: View {
 
     var filters: some View {
         ForEach(viewModel.styles, id: \.id) { style in
-            StyleView(style: style) {
+            StyleView(style: style, disabled: self.$viewModel.isLoading) {
                 self.viewModel.selectedStyleId = style.id
             }
         }
