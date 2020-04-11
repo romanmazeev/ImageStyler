@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIImage {
-    func save(key: String) ->  URL? {
+    func save(key: String) -> URL? {
         guard let jpegRepresentation = self.jpegData(compressionQuality: 0) else { return nil }
 
         guard let filePath = FileManager.default.urls(
