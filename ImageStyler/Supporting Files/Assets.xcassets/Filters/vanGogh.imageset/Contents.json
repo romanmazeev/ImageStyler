@@ -1,8 +1,19 @@
 {
   "images" : [
     {
-      "filename" : "970px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg",
-      "idiom" : "universal"
+      "filename" : "icon_60x60.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "icon_60x60@2x.jpg",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "icon_60x60@3x.jpg",
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {
