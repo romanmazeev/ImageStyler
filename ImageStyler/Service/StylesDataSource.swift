@@ -20,9 +20,7 @@ class StylesDataSource {
         Style(id: 1, image: UIImage(named: "tsunami")!, name: "Tsunami"),
         Style(id: 2, image: UIImage(named: "lsd")!, name: "Trippy"),
         Style(id: 3, image: UIImage(named: "barocco")!, name: "Barocco"),
-        Style(id: 4, image: UIImage(named: "barocco")!, name: "Barocco"),
-        Style(id: 5, image: UIImage(named: "barocco")!, name: "Barocco"),
-        Style(id: 6, image: UIImage(named: "barocco")!, name: "Barocco")
+        Style(id: 4, image: UIImage(named: "virus")!, name: "Virus")
     ]
 
     func selectStyle(_ selectedStyleId: Int) -> [Style] {
