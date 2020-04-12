@@ -16,11 +16,13 @@ class StylesDataSource {
     private init() {}
 
     var styles: [Style] = [
-        Style(id: 0, imageData: UIImage(named: "vanGogh")!.jpegData(compressionQuality: 0)!, name: "Van Gogh"),
-        Style(id: 1, imageData: UIImage(named: "tsunami")!.jpegData(compressionQuality: 0)!, name: "Tsunami"),
-        Style(id: 2, imageData: UIImage(named: "lsd")!.jpegData(compressionQuality: 0)!, name: "Trippy"),
-        Style(id: 3, imageData: UIImage(named: "barocco")!.jpegData(compressionQuality: 0)!, name: "Barocco"),
-        Style(id: 4, imageData: UIImage(named: "virus")!.jpegData(compressionQuality: 0)!, name: "Virus")
+        Style(id: 0, image: UIImage(named: "vanGogh")!, name: "Van Gogh"),
+        Style(id: 1, image: UIImage(named: "tsunami")!, name: "Tsunami"),
+        Style(id: 2, image: UIImage(named: "lsd")!, name: "Trippy"),
+        Style(id: 3, image: UIImage(named: "barocco")!, name: "Barocco"),
+        Style(id: 4, image: UIImage(named: "barocco")!, name: "Barocco"),
+        Style(id: 5, image: UIImage(named: "barocco")!, name: "Barocco"),
+        Style(id: 6, image: UIImage(named: "barocco")!, name: "Barocco")
     ]
 
     func selectStyle(_ selectedStyleId: Int) -> [Style] {

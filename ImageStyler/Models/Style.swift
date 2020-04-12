@@ -7,10 +7,11 @@
 //
 
 import Foundation
+import UIKit.UIImage
 
 struct Style: Equatable {
     let id: Int
-    let imageData: Data
+    let image: UIImage
     let name: String
     var isSelected = false
 }
