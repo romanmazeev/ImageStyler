@@ -11,7 +11,7 @@ import Combine
 import UIKit.UIImage
 
 class MLService {
-    private let model = ImageStyler()
+    private let imageStyler = ImageStyler()
 
     func transfer(_ image: UIImage, styleIndex: Int) -> AnyPublisher<UIImage, Error> {
         guard let resizedImage = image.fixedOrientation()?.cgImage?.resize(toMaxWidth: 1024),
@@ -22,10 +22,14 @@ class MLService {
 
         return Future { [unowned self] promise in
             do {
-                let styleArray = try MLMultiArray([Double](repeating: 0, count: StylesDataSource.shared.styles.count))
+                guard let stylesCount = self.imageStyler.model.modelDescription.inputDescriptionsByName["index"]?
+                    .multiArrayConstraint?.shape.first?.intValue else {
+                        fatalError("Cant get styles count")
+                }
+                let styleArray = try MLMultiArray([Double](repeating: 0, count: stylesCount))
                 styleArray[styleIndex] = 1
 
-                let predictionOutput = try self.model.prediction(image: pixelBuffer, index: styleArray)
+                let predictionOutput = try self.imageStyler.prediction(image: pixelBuffer, index: styleArray)
 
                 guard let stylizedImage = CGImage.create(pixelBuffer: predictionOutput.stylizedImage) else {
                     return promise(.failure(MLError.bufferToImageError))

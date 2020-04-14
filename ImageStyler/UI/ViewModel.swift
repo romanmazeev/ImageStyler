@@ -12,7 +12,7 @@ import SwiftUI
 class ViewModel: ObservableObject {
 
     // MARK: Input
-    @Published var selectedStyleId = 0
+    @Published var selectedStyleId = StylesDataSource.shared.styles.first?.id ?? 0
     @Published var selectedImage: UIImage?
 
     // MARK: Output
