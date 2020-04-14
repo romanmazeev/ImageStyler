@@ -15,12 +15,13 @@ class StylesDataSource {
 
     private init() {}
 
+    // Only good styles
     var styles: [Style] = [
-        Style(id: 0, image: UIImage(named: "vanGogh")!, name: "Van Gogh"),
-        Style(id: 1, image: UIImage(named: "tsunami")!, name: "Tsunami"),
-        Style(id: 2, image: UIImage(named: "lsd")!, name: "Trippy"),
-        Style(id: 3, image: UIImage(named: "barocco")!, name: "Barocco"),
-        Style(id: 4, image: UIImage(named: "virus")!, name: "Virus")
+        Style(id: 1, image: UIImage(named: "triangles")!, name: "Triangles"),
+        Style(id: 2, image: UIImage(named: "lines")!, name: "Lines"),
+        Style(id: 4, image: UIImage(named: "wood")!, name: "Wood"),
+        Style(id: 5, image: UIImage(named: "paints")!, name: "Paints"),
+        Style(id: 6, image: UIImage(named: "web")!, name: "Web")
     ]
 
     func selectStyle(_ selectedStyleId: Int) -> [Style] {
@@ -32,7 +33,6 @@ class StylesDataSource {
 }
 
 extension StylesDataSource: NSCopying {
-
     func copy(with zone: NSZone? = nil) -> Any {
         return self
     }
