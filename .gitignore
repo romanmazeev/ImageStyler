@@ -34,3 +34,7 @@ playground.xcworkspace
 
 # MacOS
 .DS_Store
+
+# MLModel
+Dataset/
+Model/image-styler.model
