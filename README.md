@@ -16,6 +16,11 @@ Image Styler changes the image selected by the user by applying one of the propo
 
 [![App Store](https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg)](https://apps.apple.com/us/app/image-styler/id1506490993)
 
+## Screenshots
+| iOS  | MacOS |
+| ---- | ----- |
+| <img src="https://i.imgur.com/06KbqVK.jpg" width="282" height="609"/>  | <img src="https://i.imgur.com/4Qz8WUd.jpg" width="550" height="609"/>  |
+
 ## Requirements
 - Xcode 11
 - Swift 5
