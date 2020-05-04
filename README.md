@@ -28,6 +28,6 @@ For training, the TuriCreate framework is used. To train your own model you need
 1. Move your styles images to [style](https://github.com/romanmazeev/ImageStyler/tree/master/Model/Dataset/style) folder.
 2. Move the training dataset into [content](https://github.com/romanmazeev/ImageStyler/tree/master/Model/Dataset/content) folder. Photos should be similar to those that you will use in the application to apply style. I used for training a [selfie dataset](https://www.crcv.ucf.edu/data/Selfie/).
 3. *[Optional]* Move the test dataset into [test](https://github.com/romanmazeev/ImageStyler/tree/master/Model/Dataset/test) folder.
-4. Run [model_creator.py](https://github.com/romanmazeev/ImageStyler/blob/master/Model/model_creator.py) script to start training.
+4. Run this [script](https://github.com/romanmazeev/ImageStyler/blob/master/Model/model_creator.py) script to start training.
 
 *Remember to change the styles data in the application.*
