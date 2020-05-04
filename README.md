@@ -6,7 +6,7 @@ Description: A curated list of machine learning models in Core ML format.
 Author: Kedan Li
 -->
 <p align="center">
-<img src="ImageStyler/Supporting Files/Assets.xcassets/AppIcon.appiconset/1024.png" width="329" height="295"/>
+<img src="ImageStyler/Supporting Files/Assets.xcassets/AppIcon.appiconset/1024.png" width="329" height="329"/>
 </p>
 
 
