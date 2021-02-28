@@ -15,7 +15,6 @@ class StylesDataSource {
 
     private init() {}
 
-    // Only good styles
     var styles: [Style] = [
         Style(id: 1, image: UIImage(named: "triangles")!, name: "Triangles"),
         Style(id: 2, image: UIImage(named: "lines")!, name: "Lines"),
