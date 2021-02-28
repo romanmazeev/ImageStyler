@@ -1,5 +1,5 @@
 //
-//  AppDelegate.swift
+//  ImageStylerApp.swift
 //  ImageStyler
 //
 //  Created by Roman Mazeev on 06.03.2020.

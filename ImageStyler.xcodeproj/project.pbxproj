@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		301108E024125DBD00A0AB66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301108DF24125DBD00A0AB66 /* AppDelegate.swift */; };
+		301108E024125DBD00A0AB66 /* ImageStylerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301108DF24125DBD00A0AB66 /* ImageStylerApp.swift */; };
 		301108EC24125DBD00A0AB66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 301108EA24125DBD00A0AB66 /* LaunchScreen.storyboard */; };
 		30559E012438EE4300F4A8C4 /* SourceButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30559E002438EE4300F4A8C4 /* SourceButtonType.swift */; };
 		30559E052439394700F4A8C4 /* UIImage+Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30559E042439394700F4A8C4 /* UIImage+Rotation.swift */; };
@@ -32,7 +32,7 @@
 
 /* Begin PBXFileReference section */
 		301108DC24125DBD00A0AB66 /* Image Styler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Image Styler.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		301108DF24125DBD00A0AB66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		301108DF24125DBD00A0AB66 /* ImageStylerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStylerApp.swift; sourceTree = "<group>"; };
 		301108EB24125DBD00A0AB66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		301108ED24125DBD00A0AB66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30559E002438EE4300F4A8C4 /* SourceButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceButtonType.swift; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 		301108F524125E1E00A0AB66 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				301108DF24125DBD00A0AB66 /* AppDelegate.swift */,
+				301108DF24125DBD00A0AB66 /* ImageStylerApp.swift */,
 				309FCA53243A4806002BB8F2 /* Assets.xcassets */,
 				309FCA52243A47DD002BB8F2 /* Preview Content */,
 				301108EA24125DBD00A0AB66 /* LaunchScreen.storyboard */,
@@ -293,7 +293,7 @@
 				30559E0B2439688100F4A8C4 /* Combine+Assign.swift in Sources */,
 				30E8E77124163CB4007652E9 /* ViewModel.swift in Sources */,
 				30559E072439449100F4A8C4 /* CGImage+Resizing.swift in Sources */,
-				301108E024125DBD00A0AB66 /* AppDelegate.swift in Sources */,
+				301108E024125DBD00A0AB66 /* ImageStylerApp.swift in Sources */,
 				30559E052439394700F4A8C4 /* UIImage+Rotation.swift in Sources */,
 				30DD3258241D4D4C00B8DEB7 /* Style.swift in Sources */,
 				30559E012438EE4300F4A8C4 /* SourceButtonType.swift in Sources */,
