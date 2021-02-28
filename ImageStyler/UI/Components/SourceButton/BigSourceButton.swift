@@ -9,17 +9,19 @@
 import SwiftUI
 
 struct BigSourceButton: View {
-    let style: SourceButtonStyle
-    let isEnabled: Bool
+    let type: SourceButtonType
     let actionHandler: () -> Void
+    var isEnabled: Bool {
+        UIImagePickerController.isSourceTypeAvailable(type == .library ? .photoLibrary : .camera)
+    }
 
     var body: some View {
         Button(action: {
             self.actionHandler()
         }) {
             HStack {
-                Image(systemName: style == .library ? "photo.on.rectangle" : "camera")
-                Text(verbatim: style == .library ? "Import from library" : "Take a photo")
+                Image(systemName: type == .library ? "photo.on.rectangle" : "camera")
+                Text(verbatim: type == .library ? "Import from library" : "Take a photo")
             }
         }
         .disabled(!isEnabled)
@@ -32,6 +34,6 @@ struct BigSourceButton: View {
 
 struct BigSourceButton_Previews: PreviewProvider {
     static var previews: some View {
-        BigSourceButton(style: .library, isEnabled: false) {}
+        BigSourceButton(type: .library) {}
     }
 }

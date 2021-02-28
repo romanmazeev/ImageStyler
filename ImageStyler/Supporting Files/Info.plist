@@ -28,23 +28,6 @@
 	<string>This app uses the camera to take a photo for further processing.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>This app uses the photo library to take a photo for further processing, and saves the processed photos in your photo library.</string>
-	<key>UIApplicationSceneManifest</key>
-	<dict>
-		<key>UIApplicationSupportsMultipleScenes</key>
-		<false/>
-		<key>UISceneConfigurations</key>
-		<dict>
-			<key>UIWindowSceneSessionRoleApplication</key>
-			<array>
-				<dict>
-					<key>UISceneConfigurationName</key>
-					<string>Default Configuration</string>
-					<key>UISceneDelegateClassName</key>
-					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
-				</dict>
-			</array>
-		</dict>
-	</dict>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>

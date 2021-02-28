@@ -11,7 +11,7 @@ import Combine
 import UIKit.UIImage
 
 class MLService {
-    private let imageStyler = ImageStyler()
+    private let imageStyler = try! ImageStyler(configuration: .init())
 
     func transfer(_ image: UIImage, styleIndex: Int) -> AnyPublisher<UIImage, Error> {
         guard let resizedImage = image.fixedOrientation()?.cgImage?.resize(toMaxWidth: 1024),

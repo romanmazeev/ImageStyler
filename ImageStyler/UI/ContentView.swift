@@ -15,7 +15,7 @@ struct ContentView: View {
     @Environment(\.verticalSizeClass) var verticalSizeClass
     @State private var isShareSheetPresented = false
     @State private var isImagePickerShowed = false
-    @State private var imagePickerSourceType: UIImagePickerController.SourceType = .camera
+    @State private var isPhotoCaptureViewShowed = false
 
     var body: some View {
         NavigationView {
@@ -30,16 +30,21 @@ struct ContentView: View {
             .navigationBarItems(
                 leading:
                     HStack {
-                        ForEach(SourceButtonStyle.allCases, id: \.self) { style in
-                            SmallSourceButton(
-                                style: style,
-                                isEnabled: UIImagePickerController.isSourceTypeAvailable(
-                                    style == .library ? .photoLibrary : .camera
-                                )
-                            ) {
-                                self.sourceButtonTapped(style: style)
-                            }
-                            .padding(.trailing)
+                        SmallSourceButton(type: .library) {
+                            isImagePickerShowed = true
+                        }
+                        .fullScreenCover(isPresented: $isImagePickerShowed) {
+                            ImagePicker(selectedImage: self.$viewModel.selectedImage, sourceType: .photoLibrary)
+                                .ignoresSafeArea()
+                        }
+                        .padding(.trailing)
+
+                        SmallSourceButton(type: .camera) {
+                            isPhotoCaptureViewShowed = true
+                        }
+                        .fullScreenCover(isPresented: $isPhotoCaptureViewShowed) {
+                            ImagePicker(selectedImage: self.$viewModel.selectedImage, sourceType: .camera)
+                                .ignoresSafeArea()
                         }
                     }
                     .opacity(self.viewModel.selectedImage == nil ? 0 : 1)
@@ -53,11 +58,9 @@ struct ContentView: View {
                     .opacity(self.viewModel.selectedImage == nil ? 0 : 1)
                     .sheet(isPresented: $isShareSheetPresented) {
                         ShareSheet(shareImageURL: self.viewModel.stylizedImageURL!)
+                            .ignoresSafeArea()
                     }
             )
-            .sheet(isPresented: $isImagePickerShowed) {
-                ImagePicker(selectedImage: self.$viewModel.selectedImage, sourceType: self.imagePickerSourceType)
-            }
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .alert(isPresented: $viewModel.isError) {
@@ -75,16 +78,13 @@ struct ContentView: View {
         VStack {
             Spacer()
 
-            ForEach(SourceButtonStyle.allCases, id: \.self) { style in
-                BigSourceButton(
-                    style: style,
-                    isEnabled: UIImagePickerController.isSourceTypeAvailable(
-                        style == .library ? .photoLibrary : .camera
-                    )
-                ) {
-                    self.sourceButtonTapped(style: style)
-                }
-                .padding()
+            BigSourceButton(type: .library) {
+                isImagePickerShowed = true
+            }
+            .padding()
+
+            BigSourceButton(type: .camera) {
+                isPhotoCaptureViewShowed = true
             }
 
             Spacer()
@@ -121,7 +121,7 @@ struct ContentView: View {
 
     var styledImage: some View {
         if viewModel.isLoading {
-            return AnyView(ActivityIndicator(style: .medium))
+            return AnyView(ProgressView())
         } else if viewModel.stylizedImage != nil {
             if verticalSizeClass == .compact {
                 return AnyView(
@@ -165,11 +165,6 @@ struct ContentView: View {
                 self.viewModel.selectedStyleId = style.id
             }
         }
-    }
-
-    private func sourceButtonTapped(style: SourceButtonStyle) {
-        self.isImagePickerShowed = true
-        self.imagePickerSourceType = style == .library ? .photoLibrary : .camera
     }
 }
 

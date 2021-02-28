@@ -1,5 +1,5 @@
 //
-//  ImagePickerRepresentable.swift
+//  ImagePicker.swift
 //  ImageStyler
 //
 //  Created by Roman Mazeev on 09.03.2020.
@@ -8,24 +8,19 @@
 
 import SwiftUI
 
-struct ImagePickerRepresentable : UIViewControllerRepresentable {
-    @Environment(\.presentationMode) var mode
+struct ImagePicker : UIViewControllerRepresentable {
+    @Environment(\.presentationMode) var presentationMode
     @Binding var selectedImage: UIImage?
     let sourceType: UIImagePickerController.SourceType
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(cancelHandler: {
-            self.mode.wrappedValue.dismiss()
-        }) { image in
-            self.selectedImage = image
-            self.mode.wrappedValue.dismiss()
-        }
+        Coordinator(self)
     }
 
     func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {}
 
     func makeUIViewController(
-        context: UIViewControllerRepresentableContext<ImagePickerRepresentable>
+        context: UIViewControllerRepresentableContext<ImagePicker>
     ) -> UIImagePickerController {
         let picker = UIImagePickerController()
         picker.sourceType = sourceType
@@ -34,12 +29,10 @@ struct ImagePickerRepresentable : UIViewControllerRepresentable {
     }
 
     class Coordinator : NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-        var cancelHandler: (() -> Void)?
-        var pickedImageHandler: ((UIImage) -> Void)?
+        let parent: ImagePicker
 
-        init(cancelHandler : (() -> Void)?, pickedImageHandler: ((UIImage) -> Void)?) {
-            self.cancelHandler = cancelHandler
-            self.pickedImageHandler = pickedImageHandler
+        init(_ parent: ImagePicker) {
+            self.parent = parent
         }
         
         func imagePickerController(
@@ -47,11 +40,12 @@ struct ImagePickerRepresentable : UIViewControllerRepresentable {
             didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]
         ) {
             guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
-            self.pickedImageHandler?(image)
+            parent.selectedImage = image
+            parent.presentationMode.wrappedValue.dismiss()
         }
 
         func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-            self.cancelHandler?()
+            parent.presentationMode.wrappedValue.dismiss()
         }
     }
 }
