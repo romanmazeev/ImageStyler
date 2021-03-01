@@ -16,9 +16,9 @@ struct SmallSourceButton: View {
         Button(action: {
             self.actionHandler()
         }) {
-            Image(systemName: type == .library ? "photo.on.rectangle" : "camera")
+            Image(systemName: type.systemImageName)
         }
-        .disabled(!UIImagePickerController.isSourceTypeAvailable(type == .library ? .photoLibrary : .camera))
+        .disabled(!type.isSourceTypeEnabled)
     }
 }
 

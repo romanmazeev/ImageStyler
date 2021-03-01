@@ -15,7 +15,7 @@ struct StyleView: View {
 
     var body: some View {
         VStack {
-            Image(uiImage: style.image)
+            style.image
                 .resizable()
                 .cornerRadius(12)
                 .frame(width: 60, height: 60, alignment: .center)
@@ -36,6 +36,6 @@ struct StyleView: View {
 
 struct StyleView_Previews: PreviewProvider {
     static var previews: some View {
-        StyleView(style: Style(id: 0, image: UIImage(), name: "Test", isSelected: false), disabled: .constant(false), action: {})
+        StyleView(style: Style(id: 0, image: Image(""), name: "Test", isSelected: false), disabled: .constant(false), action: {})
     }
 }

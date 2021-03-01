@@ -11,23 +11,21 @@ import SwiftUI
 struct BigSourceButton: View {
     let type: SourceButtonType
     let actionHandler: () -> Void
-    var isEnabled: Bool {
-        UIImagePickerController.isSourceTypeAvailable(type == .library ? .photoLibrary : .camera)
-    }
 
     var body: some View {
         Button(action: {
             self.actionHandler()
         }) {
             HStack {
-                Image(systemName: type == .library ? "photo.on.rectangle" : "camera")
-                Text(verbatim: type == .library ? "Import from library" : "Take a photo")
+                Image(systemName: type.systemImageName)
+                Text(verbatim: type.title)
             }
         }
-        .disabled(!isEnabled)
+        .disabled(!type.isSourceTypeEnabled)
         .padding()
+        .frame(minWidth: 0, maxWidth: .infinity)
         .foregroundColor(.white)
-        .background(isEnabled ? Color.blue : Color.gray)
+        .background(type.isSourceTypeEnabled ? Color.blue : Color.gray)
         .cornerRadius(12)
     }
 }

@@ -3,17 +3,24 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		301108E024125DBD00A0AB66 /* ImageStylerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301108DF24125DBD00A0AB66 /* ImageStylerApp.swift */; };
 		301108EC24125DBD00A0AB66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 301108EA24125DBD00A0AB66 /* LaunchScreen.storyboard */; };
+		30301C0A25EC1BDE001BF678 /* ImageStylingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30301C0925EC1BDE001BF678 /* ImageStylingView.swift */; };
+		30301C0D25EC1C02001BF678 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30301C0C25EC1C02001BF678 /* WelcomeView.swift */; };
+		30301C1025EC2A48001BF678 /* Bundle+AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30301C0F25EC2A48001BF678 /* Bundle+AppIcon.swift */; };
+		30301C1425EC2A9B001BF678 /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30301C1325EC2A9B001BF678 /* AppIcon.swift */; };
+		30301C1925EC583B001BF678 /* VisualEffects in Frameworks */ = {isa = PBXBuildFile; productRef = 30301C1825EC583B001BF678 /* VisualEffects */; };
+		30301C1D25EC67ED001BF678 /* ImageViewer in Frameworks */ = {isa = PBXBuildFile; productRef = 30301C1C25EC67ED001BF678 /* ImageViewer */; };
+		30301C2025EC69F3001BF678 /* PinchToZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30301C1F25EC69F3001BF678 /* PinchToZoom.swift */; };
+		30301C3125ECBF78001BF678 /* ExamplesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30301C3025ECBF78001BF678 /* ExamplesDataSource.swift */; };
 		30559E012438EE4300F4A8C4 /* SourceButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30559E002438EE4300F4A8C4 /* SourceButtonType.swift */; };
 		30559E052439394700F4A8C4 /* UIImage+Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30559E042439394700F4A8C4 /* UIImage+Rotation.swift */; };
 		30559E072439449100F4A8C4 /* CGImage+Resizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30559E062439449100F4A8C4 /* CGImage+Resizing.swift */; };
 		30559E0924394F8E00F4A8C4 /* UIImage+Saving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30559E0824394F8E00F4A8C4 /* UIImage+Saving.swift */; };
-		30559E0B2439688100F4A8C4 /* Combine+Assign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30559E0A2439688100F4A8C4 /* Combine+Assign.swift */; };
 		306FF5CC25EB702000428941 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306FF5CA25EB701F00428941 /* ImagePicker.swift */; };
 		306FF5D225EB708B00428941 /* SmallSourceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306FF5D125EB708B00428941 /* SmallSourceButton.swift */; };
 		309FCA54243A4806002BB8F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 309FCA53243A4806002BB8F2 /* Assets.xcassets */; };
@@ -35,11 +42,16 @@
 		301108DF24125DBD00A0AB66 /* ImageStylerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStylerApp.swift; sourceTree = "<group>"; };
 		301108EB24125DBD00A0AB66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		301108ED24125DBD00A0AB66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30301C0925EC1BDE001BF678 /* ImageStylingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStylingView.swift; sourceTree = "<group>"; };
+		30301C0C25EC1C02001BF678 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		30301C0F25EC2A48001BF678 /* Bundle+AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+AppIcon.swift"; sourceTree = "<group>"; };
+		30301C1325EC2A9B001BF678 /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
+		30301C1F25EC69F3001BF678 /* PinchToZoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinchToZoom.swift; sourceTree = "<group>"; };
+		30301C3025ECBF78001BF678 /* ExamplesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamplesDataSource.swift; sourceTree = "<group>"; };
 		30559E002438EE4300F4A8C4 /* SourceButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceButtonType.swift; sourceTree = "<group>"; };
 		30559E042439394700F4A8C4 /* UIImage+Rotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Rotation.swift"; sourceTree = "<group>"; };
 		30559E062439449100F4A8C4 /* CGImage+Resizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImage+Resizing.swift"; sourceTree = "<group>"; };
 		30559E0824394F8E00F4A8C4 /* UIImage+Saving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Saving.swift"; sourceTree = "<group>"; };
-		30559E0A2439688100F4A8C4 /* Combine+Assign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+Assign.swift"; sourceTree = "<group>"; };
 		306FF5CA25EB701F00428941 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		306FF5D125EB708B00428941 /* SmallSourceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallSourceButton.swift; sourceTree = "<group>"; };
 		309FCA53243A4806002BB8F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -62,6 +74,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30301C1D25EC67ED001BF678 /* ImageViewer in Frameworks */,
+				30301C1925EC583B001BF678 /* VisualEffects in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,8 +146,10 @@
 			children = (
 				30559DFF2438EE1B00F4A8C4 /* SourceButton */,
 				30DD3251241C8CC700B8DEB7 /* FilterView.swift */,
+				30301C1F25EC69F3001BF678 /* PinchToZoom.swift */,
 				30DD324E241C7A0900B8DEB7 /* ShareSheet.swift */,
 				306FF5CA25EB701F00428941 /* ImagePicker.swift */,
+				30301C1325EC2A9B001BF678 /* AppIcon.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -153,7 +169,7 @@
 				30559E042439394700F4A8C4 /* UIImage+Rotation.swift */,
 				30559E062439449100F4A8C4 /* CGImage+Resizing.swift */,
 				30559E0824394F8E00F4A8C4 /* UIImage+Saving.swift */,
-				30559E0A2439688100F4A8C4 /* Combine+Assign.swift */,
+				30301C0F25EC2A48001BF678 /* Bundle+AppIcon.swift */,
 			);
 			path = Exstensions;
 			sourceTree = "<group>";
@@ -162,6 +178,8 @@
 			isa = PBXGroup;
 			children = (
 				30CEB213241ADC0400FA31BD /* ContentView.swift */,
+				30301C0925EC1BDE001BF678 /* ImageStylingView.swift */,
+				30301C0C25EC1C02001BF678 /* WelcomeView.swift */,
 				30E8E77024163CB4007652E9 /* ViewModel.swift */,
 				30CEB216241ADC4B00FA31BD /* Components */,
 			);
@@ -172,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				30F1499A241DB75B00399BF6 /* StylesDataSource.swift */,
+				30301C3025ECBF78001BF678 /* ExamplesDataSource.swift */,
 				30E8E783241642EE007652E9 /* ML */,
 			);
 			path = Service;
@@ -204,6 +223,8 @@
 			);
 			name = ImageStyler;
 			packageProductDependencies = (
+				30301C1825EC583B001BF678 /* VisualEffects */,
+				30301C1C25EC67ED001BF678 /* ImageViewer */,
 			);
 			productName = ImageStyler;
 			productReference = 301108DC24125DBD00A0AB66 /* Image Styler.app */;
@@ -234,6 +255,8 @@
 			);
 			mainGroup = 301108D324125DBD00A0AB66;
 			packageReferences = (
+				30301C1725EC583B001BF678 /* XCRemoteSwiftPackageReference "VisualEffects" */,
+				30301C1B25EC67ED001BF678 /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */,
 			);
 			productRefGroup = 301108DD24125DBD00A0AB66 /* Products */;
 			projectDirPath = "";
@@ -289,17 +312,22 @@
 				30559E0924394F8E00F4A8C4 /* UIImage+Saving.swift in Sources */,
 				30E8E78524164323007652E9 /* ImageStyler.mlmodel in Sources */,
 				30F1499B241DB75B00399BF6 /* StylesDataSource.swift in Sources */,
+				30301C2025EC69F3001BF678 /* PinchToZoom.swift in Sources */,
 				30CEB215241ADC0400FA31BD /* ContentView.swift in Sources */,
-				30559E0B2439688100F4A8C4 /* Combine+Assign.swift in Sources */,
 				30E8E77124163CB4007652E9 /* ViewModel.swift in Sources */,
+				30301C0A25EC1BDE001BF678 /* ImageStylingView.swift in Sources */,
+				30301C1425EC2A9B001BF678 /* AppIcon.swift in Sources */,
 				30559E072439449100F4A8C4 /* CGImage+Resizing.swift in Sources */,
+				30301C3125ECBF78001BF678 /* ExamplesDataSource.swift in Sources */,
 				301108E024125DBD00A0AB66 /* ImageStylerApp.swift in Sources */,
 				30559E052439394700F4A8C4 /* UIImage+Rotation.swift in Sources */,
 				30DD3258241D4D4C00B8DEB7 /* Style.swift in Sources */,
 				30559E012438EE4300F4A8C4 /* SourceButtonType.swift in Sources */,
+				30301C0D25EC1C02001BF678 /* WelcomeView.swift in Sources */,
 				306FF5D225EB708B00428941 /* SmallSourceButton.swift in Sources */,
 				30E8E77E24164290007652E9 /* MLService.swift in Sources */,
 				306FF5CC25EB702000428941 /* ImagePicker.swift in Sources */,
+				30301C1025EC2A48001BF678 /* Bundle+AppIcon.swift in Sources */,
 				30DD324F241C7A0900B8DEB7 /* ShareSheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -506,6 +534,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		30301C1725EC583B001BF678 /* XCRemoteSwiftPackageReference "VisualEffects" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/VisualEffects.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.3;
+			};
+		};
+		30301C1B25EC67ED001BF678 /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Jake-Short/swiftui-image-viewer.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		30301C1825EC583B001BF678 /* VisualEffects */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30301C1725EC583B001BF678 /* XCRemoteSwiftPackageReference "VisualEffects" */;
+			productName = VisualEffects;
+		};
+		30301C1C25EC67ED001BF678 /* ImageViewer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30301C1B25EC67ED001BF678 /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */;
+			productName = ImageViewer;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 301108D424125DBD00A0AB66 /* Project object */;
 }
